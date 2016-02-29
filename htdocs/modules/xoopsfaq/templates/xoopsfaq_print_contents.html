@@ -1,0 +1,132 @@
+      <!DOCTYPE HTML>
+<html class='faq_doc'>
+  <head>
+  
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title><{$title0}></title>
+
+<link rel='stylesheet' type='text/css' media='all' href='<{$url_base}>/print-faq/xoopsfaq_view.css' />
+<link rel='stylesheet' type='text/css' media='print' href='<{$url_base}>/print-faq/xoopsfaq_print.css' />
+<script src='<{$url_base}>/print-faq/xoopsfaq_print.js' type='text/javascript'></script>
+
+  </head>
+  <body onkeydown="applyKey();" background="<{$url_base}>/images/background1.jpg">
+
+<!-- ****************************************************************** -->
+  <hr  class='masquer avertissement'>
+<table class='entete'>
+  <!-- avertissement masquer pour l'imression -->
+  <tr id='avertissement' class='masquer avertissement'>
+    <td  colspan='3'>
+    <div align='center' class='avertissement masquer'>
+    
+    <span style="color: rgb(204, 0, 0);"><{$smarty.const._MD_FAQ_PRINT_ALERT1}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT2}>"</span> <{$smarty.const._MD_FAQ_PRINT_ALERT3}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT4}>"</span>.</span><br />
+    
+    </div>
+
+    <div >
+  
+      <img style="float:right;" src="<{$path_icons32}>/blank.gif" width="10px">
+      <a class='masquer' href="" onclick='closeDoc();'>
+        <img  style="float:right;"  src="<{$path_icons32}>/quit.png">
+      </a>
+      <img style="float:right;" src="<{$path_icons32}>/blank.gif" width="10px">
+      <a class='masquer' href="" onclick='printDoc();'>
+        <img style="float:right;" src="<{$path_icons32}>/print.png">
+      </a>
+    </div>
+    </td>
+  </tr>
+   
+</table> 
+  <hr  class='masquer avertissement'>
+  
+<!-- ******************* contenu de la page ******************* -->
+
+<table class='entete faq_table'>
+  <tr>
+    <td class='faq_td_caption'><{$smarty.const._MD_FAQ_QUESTION}> : </td>
+    <td class='faq_Title faq_td_data'>[#<{$contents.contents_id}>] </b><{$contents.contents_title}></td>
+    
+  </tr>
+  
+  <{if $contents.contents_answer != ''}>
+  <tr>
+    <td class='faq_td_caption'><{$smarty.const._MD_FAQ_SHORT_ANSWER}> : </td>
+    <td class='faq_MediumTitle faq_td_data'><b><{$media.idMedia}></b><{$contents.contents_answer}></td>
+    
+  </tr>
+  <{/if}>
+  
+  <{if $contents.contents_contents != ''}>
+  <tr>
+    <td class='faq_td_caption'><{$smarty.const._MD_FAQ_SHORT_CONTENTS}> : </td>
+    <td class='faq_td_contents faq_td_data'><{$contents.contents_contents}></td>
+    
+  </tr>
+  <{/if}>
+  
+  <{if count($contents.seealso) > 0}>                      
+  <tr>
+    <td class='faq_td_caption'><{$smarty.const._MD_FAQ_LINKS}> : </td>
+     <td class='faq_td_contents faq_td_data'>
+          <{foreach item=itemSeealso from=$contents.seealso}>
+            <li>&nbsp;<{if $itemSeealso.lib != ''}><{$itemSeealso.lib}> : <{/if}><{$itemSeealso.url}>
+          <{/foreach}>  
+    </td>
+  </tr>
+  <{/if}>
+  
+  <tr>
+    <td class='faq_td_caption'><{$smarty.const._MD_FAQ_PUBLISHED}> : </td>
+    <td class='faq_td_title'><{$contents.date_publication}></td>
+    
+  </tr>
+  
+  <!-- Création du pied de page à répéter -->
+  <tfoot>
+  <tr>
+  <th class='faq_Foot' colspan="2">
+      <{$smarty.const._MD_FAQ_COPYRYGHT1}> - <{$sitename}><br />
+      <{$smarty.const._MD_FAQ_COPYRYGHT2}><br />
+      <a href='<{$smarty.const.XOOPS_URL}>'><{$smarty.const.XOOPS_URL}></a>
+  </th>
+  </tr>                                          
+  </tfoot>
+
+  </table>
+
+
+   <!-- avertissement masquer pour l'imression -->
+  <hr  class='masquer avertissement'>
+<table class='entete'>
+  <tr id='avertissement' class='masquer avertissement'>
+    <td  colspan='3'>
+    <div align='center' class='avertissement masquer'>
+    
+    <span style="color: rgb(204, 0, 0);"><{$smarty.const._MD_FAQ_PRINT_ALERT1}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT2}>"</span> <{$smarty.const._MD_FAQ_PRINT_ALERT3}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT4}>"</span>.</span><br />
+    
+    </div>
+
+    <div >
+  
+      <img style="float:right;" src="<{$path_icons32}>/blank.gif" width="10px">
+      <a class='masquer' href="" onclick='closeDoc();'>
+        <img  style="float:right;"  src="<{$path_icons32}>/quit.png">
+      </a>
+      <img style="float:right;" src="<{$path_icons32}>/blank.gif" width="10px">
+      <a class='masquer' href="" onclick='printDoc();'>
+        <img style="float:right;" src="<{$path_icons32}>/print.png">
+      </a>
+    </div>
+    </td>
+  </tr>
+   
+</table> 
+  <hr  class='masquer avertissement'>
+
+  </body>
+</html>
+

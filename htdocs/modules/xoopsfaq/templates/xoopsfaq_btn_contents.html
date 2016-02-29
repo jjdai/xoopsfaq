@@ -1,0 +1,14 @@
+<div style="text-align:right;">    
+  <{foreach item=btn from=$btns}>   
+    <a <{if $btn.action=='onclick'}> href="" onclick="javascript:openWithSelfMain('<{$btn.url}><{$question.id}>','',800,600);return false;" 
+       <{elseif $btn.action=='top_page'}> href="<{$btn.url}>" 
+       <{elseif $btn.action=='mailto'}><{include file="db:xoopsfaq_tellafriend.html"}>      
+       <{else}> href="<{$btn.url}><{$question.id}>"     
+       <{/if}>  >
+      <img src="<{$btn.icone}>" title="<{$btn.title}>">
+    </a>
+    <img src="<{$smarty.const._FAQ_BLANK}>" title="" width="5px">
+  <{/foreach}>
+</div>
+<hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);">
+                    

@@ -1,0 +1,9 @@
+/*  pour l'impression seulement
+<style type=text/css media=print>
+*/
+ 
+
+.masquer{
+visibility:hidden;
+display: none;
+}

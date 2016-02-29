@@ -1,0 +1,144 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.HideOutput=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
+Compilator.LogType=0
+DefaultDir=F:\_mini_server_n6\udrive\www\xmodules\modules\xoopsfaq
+DefaultCPIndex=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+Extensions=*.*
+[Project tree]
+_xoopsfaq
+	+_ressources
+		..\..\kernel\object.php
+		..\..\include\cp_header.php
+		..\..\class\xoopsform\grouppermform.php
+		..\..\class\xoopsformloader.php
+	+xoopsfaq
+		-print-faq
+			print-faq\xoopsfaq_print.php
+			print-faq\xoopsfaq_print.css
+			print-faq\xoopsfaq_print.js
+			print-faq\xoopsfaq_print.html
+			print-faq\xoopsfaq_view.css
+		+admin
+			admin\admin_header.php
+			admin\category.php
+			admin\index.php
+			admin\menu.php
+			admin\contents.php
+			admin\permissions.php
+			admin\info_module.php
+			admin\about.php
+			admin\admin_footer.php
+		+class
+			class\category.php
+			class\contents.php
+			class\index.html
+			class\permissions.php
+		-docs
+			docs\changelog.txt
+			docs\index.html
+			docs\readme.txt
+			docs\ToDo.txt
+		-images
+			images\delete.png
+			images\edit.png
+			images\faq.png
+			images\folder.png
+			images\index.html
+			images\left_both.gif
+			images\microbutton.gif
+			images\modadminbg.gif
+			images\question2.gif
+			images\right_both.gif
+			images\slogo.png
+		+include
+			include\functions.php
+			include\index.html
+			include\search.inc.php
+			include\constantes.php
+			include\install.php
+			admin\about.php
+		-language
+			-english
+				language\english\admin.php
+				language\english\index.html
+				language\english\main.php
+				language\english\modinfo.php
+			+french
+				language\french\admin.php
+				language\french\index.html
+				language\french\main.php
+				language\french\modinfo.php
+			+schinese_utf8
+				language\schinese_utf8\admin.php
+				language\schinese_utf8\index.html
+				language\schinese_utf8\main.php
+				language\schinese_utf8\modinfo.php
+			language\index.html
+			language\tpl-language-header.php
+		-sql
+			sql\index.html
+			sql\mysql.sql
+		+templates
+			+css
+				templates\css\index.html
+				templates\css\module.css
+			templates\index.html
+			templates\xoopsfaq_category.html
+			templates\xoopsfaq_index.html
+			templates\xoopsfaq_print_contents.html
+			templates\xoopsfaq_btn_contents.html
+			templates\xoopsfaq_tellafriend.html
+		comment_delete.php
+		comment_edit.php
+		comment_new.php
+		comment_post.php
+		comment_reply.php
+		footer.php
+		header.php
+		index.php
+		xoops_version.php
+[Open project files]
+0=admin\about.php
+1=admin\admin_footer.php
+2=xoops_version.php
+3=admin\admin_header.php
+4=admin\menu.php
+5=class\contents.php
+6=include\functions.php
+7=include\constantes.php
+[Selected Project Files]
+Main=
+Selected=include\functions.php
+[admin\about.php]
+TopLine=5
+Caret=31,30
+[admin\admin_footer.php]
+TopLine=5
+Caret=1,23
+[xoops_version.php]
+TopLine=1
+Caret=40,32
+[admin\admin_header.php]
+TopLine=1
+Caret=58,21
+[admin\menu.php]
+TopLine=1
+Caret=1,25
+[class\contents.php]
+TopLine=389
+Caret=11,407
+[include\functions.php]
+TopLine=190
+Caret=1,208
+[include\constantes.php]
+TopLine=17
+Caret=36,33

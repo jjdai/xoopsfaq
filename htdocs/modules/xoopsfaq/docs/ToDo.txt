@@ -1,0 +1,17 @@
+
+anomalies
+ok- Classement des FAQ par poids dans la partie admin
+ok- Classement des FAQ par poids dans la partie utilisateur
+
+Tableau des FAQ côté Admin :
+- cliquer sur l'entête de colonne pour trier par catégorie, poids ou titre.
+ok- changer la catégorie de la FAQ directement depuis le tableau, en déroulant la liste des catégorie, pour chaque FAQ
+
+
+Côté utilisateur:
+- "poser votre question" depuis l'interface utilisateur, dans le menu par exemple
+- "edition" depuis l'interface utilisateur pour le groupe des administrateur
+- "poser votre question" depuis l'interface utilisateur, dans le menu par exemple
+- Avoir un bouton côté utilisateur "Impression" qui t'envoi vers un template épuré, bien présenté avec uniquement la FAQ en question.
+- Envoyé à un ami
+ 

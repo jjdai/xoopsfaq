@@ -1,0 +1,51 @@
+
+=>version 2.8 du 02/02/2016 (Jean-Jacques DELALANDRE)
+-----------------------------------------------------
+-changement dans la structure des table et mise à jour du fichier mysql.sql et du fichier install.php
+     -table categories changement de type des champs suivants
+      `category_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+      `category_order` int(10) UNSIGNED NOT NULL DEFAULT '0',
+      Ajout du champ "`category_active` tinyint(1) NOT NULL DEFAULT '1',"
+    -table contents changement de type des champs suivants
+      `contents_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+      `contents_cid` int(10) UNSIGNED NOT NULL DEFAULT '0',
+- Preférence du module : Selection des éditeurs installés avec par defaut celui du site
+    
+- Interface utilisateur
+  - Création d'un formulair pour imprimer les FAQ
+  - Ajout pour les groupes autorisée des actions imprimer, mailto, editer, ajouter, supprimer, top-page
+  
+- Interface admin
+  - Ajout d'un onglet permissions pour les fonctions: imprimer, mailto, editer, ajouter, supprimer
+    Pour y accéder il faut être admin du site
+    les groupes assujettis à ces permissions doivent être admin du module, mais ce n'ai pas pour autant qu'ils pourront supprimer, editer, ... il faut utiliser l'onglet permissions pour ça.
+  - onglet categorie 
+    Ajout de la modification du poids directement dans la liste
+    activation/désacivation de la faq directement dans la liste admin
+  - onglet questions 
+    Ajout de la modification du poids et de la catégorie directement dans la liste
+    Ajout de la suppression par lot avec valisdation
+    correction du format de la date
+    activation/désacivation de la faq directement dans la liste admin
+    Tri : categorie/poids/title
+
+- mailto: ajout d'un appel à tellafriend pour faire suivre un mail avec la faq consultée.
+          tellafriend v2.0 ou supérieur doit être installé pour utiliser cette fonctionalité.
+              
+=>version 2.1 du 25/01/2016 (Jean-Jacques DELALANDRE)
+------------------------------------------------------
+- Intégration du framework "moduleadmin"
+- adaptatation du fichier "menu.php" pour le "blue move"
+- Suppresion des images d'onglet devenues inutiles
+- Ajout des icones 32x32 pour admin
+- Ajout du champ "answer" pour une réponse affichée dans les sommaire du module
+- Ajout des champs seealso1 libseealso1 seealso2 libseealso2 seealso3 libseealso3
+  pour ajouter des liens externes sur des documentations par exemple
+- Ajout des fonctions install, uninstall et update.
+  la fonction "update" ajoute les nouveaux champs si nécessaires
+- modification des templates pour intégrer les nouveaux champs
+- correction et mise à jour des fichiers de langues
+
+=>version 1.20
+--------------------
+This mudule has been refactored nearly 99% and I have replaced all old code with new. Only the templates havent changed that much
