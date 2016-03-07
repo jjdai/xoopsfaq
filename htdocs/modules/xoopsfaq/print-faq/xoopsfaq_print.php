@@ -27,7 +27,7 @@ require_once XOOPS_ROOT_PATH . "/class/template.php";
 //-------------------------------------------------------
 global $xoopsConfig;
 //$modulePath =  XOOPS_ROOT_PATH . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'dirname' );
-$modulePath =  XOOPS_ROOT_PATH . '/modules/xoopsfaq';
+$modulePath =  _FAQ_PATH;
 require_once $modulePath.'/xoops_version.php';
 require_once $modulePath.'/include/functions.php';
 require_once $modulePath.'/include/constantes.php';
@@ -46,7 +46,7 @@ require_once $modulePath.'/language/' . $GLOBALS['xoopsConfig']['language'] . '/
   $xoopsTpl->assign('url_base', _FAQ_URL); 
   //$xoopsTpl->assign('print_alert', _MD_MED_PRINT_ALERT); 
   
-$contents_handler = &xoops_getModuleHandler( 'contents','xoopsfaq' );
+$contents_handler = &xoops_getModuleHandler( 'contents',_FAQ_DIRNAME );
 //echo "ici";exit; 
 	$contents_id = $_REQUEST['contents_id'];
 	$obj = $contents_handler->get( $contents_id ) ;

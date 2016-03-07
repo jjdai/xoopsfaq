@@ -19,10 +19,13 @@
  * @author Jean-Jacques DELALANDRE
  * @version $Id: functions.php 0000 10/01/20126 09:03:22 John Neill $
  */
- 
-$faq_module='xoopsfaq'; 
-define('_FAQ_PATH', XOOPS_ROOT_PATH  . "/modules/" . $faq_module);
-define('_FAQ_URL',  XOOPS_URL . "/modules/" . $faq_module);
+
+//echo __FILE__ . "</br>"; 
+
+$faq_dirname='xoopsfaq'; 
+define('_FAQ_DIRNAME', $faq_dirname);
+define('_FAQ_PATH', XOOPS_ROOT_PATH  . "/modules/" . _FAQ_DIRNAME);
+define('_FAQ_URL',  XOOPS_URL . "/modules/" . _FAQ_DIRNAME);
 define('_FAQ_URL_ADMIN_CAT',  _FAQ_URL ."/admin/category.php");  
 define('_FAQ_URL_ADMIN_FAQ',  _FAQ_URL ."/admin/contents.php");
                                  

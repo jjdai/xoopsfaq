@@ -29,7 +29,7 @@ $op = xoopsFaq_CleanVars( $_REQUEST, 'op', 'default', 'string' );
 include_once _FAQ_PATH . "/class/permissions.php" ;
 $permissions_handler = new XoopsfaqPermissions();
 
-//$permissions_handler = &xoops_getModuleHandler( 'contents','xoopsfaq' );
+//$permissions_handler = &xoops_getModuleHandler( 'contents',_FAQ_DIRNAME );
 $permissions_handler->display($_REQUEST);
 
 xoopsfaq_getPermission('xoopsfaq_faq', 1);

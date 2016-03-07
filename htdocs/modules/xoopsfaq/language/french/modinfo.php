@@ -24,7 +24,7 @@
  
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 
-define('_MI_FAQ_XOOPSFAQ_NAME', "xoopsfaq");
+define('_MI_FAQ_XOOPSFAQ_NAME', _FAQ_DIRNAME);
 define('_MI_FAQ_XOOPSFAQ_DESC', "Gestionnaire de FAQ Xoops");
 define('_MI_FAQ_MENU_MODULEHOME', "Accueil du module");
 define('_MI_FAQ_MENU_MODULEBLOCKS', "Blocs");

@@ -137,9 +137,9 @@ switch ( $op ) {
 		xoops_cp_header();
 //		xoopsFaq_AdminMenu( 1 );
     $index_admin = new ModuleAdmin();
-    //echo $index_admin->addNavigation('xoopsfaq');
+    //echo $index_admin->addNavigation(_FAQ_DIRNAME);
     if (xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_ADD, true)) {
-      $url = XOOPS_URL .'/modules/xoopsfaq/admin/'. basename( $_SERVER['SCRIPT_FILENAME'] ) . '?op=edit&value=' . _AM_FAQ_CREATENEW ;
+      $url = _FAQ_URL .'/admin/'. basename( $_SERVER['SCRIPT_FILENAME'] ) . '?op=edit&value=' . _AM_FAQ_CREATENEW ;
       $index_admin->addItemButton(_ADD, $url, 'add',"");
       echo  $index_admin->renderButton('right', '');
     }

@@ -20,6 +20,7 @@
  * @version $Id: functions.php 0000 10/04/2009 09:03:22 John Neill $
  */
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
+include_once 'constantes.php';
 
 /**
  * loadModuleAdminMenu()
@@ -288,7 +289,7 @@ function xoopsFaq_transformDate2Local($mydate){
  
  $btn = array();   
  $perms = xoopsfaq_getAPermissions(_FAQ_PERM_FAQ);
- $url_module = XOOPS_URL . "/modules/xoopsfaq";       
+ $url_module = _FAQ_URL;       
       
  //echoA($perms,'interface-' . _FAQ_PERM_FAQ);
  //----------------------------------------------------
@@ -304,7 +305,6 @@ function xoopsFaq_transformDate2Local($mydate){
  
  //----------------------------------------------------
 //     <a target="_top" href="<{$mail_link|xoops_tellafriend}>">
-//http://localhost:8102/laboele/modules/xoopsfaq/index.php?cat_id=1#q2
  if ( $perms[_FAQ_PERM_MAILTO] && xoopsfaq_isTellafriend())
  {
    $b = array('icone'=>_FAQ_MAIL, 
@@ -545,7 +545,8 @@ function xoopsfaq_isAdminModule()
 global $xoopsUser,$xoopsModule,$xoopsmod;
 $bolOk = false;
   if ( $xoopsUser ) {
-  	$xoopsModule = XoopsModule::getByDirname("xoopsfaq");
+  echo "<hr>"._FAQ_DIRNAME."<hr>";
+  	$xoopsModule = XoopsModule::getByDirname(_FAQ_DIRNAME);
   	$bolOk =  $xoopsUser->isAdmin($xoopsModule->mid()) ;
   }
   return $bolOk;
@@ -556,7 +557,7 @@ $bolOk = false;
 // {
 // global $xoopsUser,$xoopsModule,$xoopsmod;
 //   if ( $xoopsUser ) {
-//   	$xoopsModule = XoopsModule::getByDirname("xoopsfaq");
+//   	$xoopsModule = XoopsModule::getByDirname(_FAQ_DIRNAME);
 //   	if ( !$xoopsUser->isAdmin($xoopsModule->mid()) ) {
 //   		redirect_header(XOOPS_URL."/",3,_NOPERM);
 //       exit();

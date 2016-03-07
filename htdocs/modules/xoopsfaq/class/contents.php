@@ -246,10 +246,10 @@ class XoopsfaqContents extends XoopsObject {
 	function getActive() {
 		return $this->getVar( 'contents_active' ) ? _YES : _NO;
 	}
-	function getActiveIcone() {
+	function getActiveIcone($sort='', $order='') {
     $active = $this->getVar( 'contents_active' );
     $img = ($active==1) ? _FAQ_ON : _FAQ_OFF;
-    $url = XOOPS_URL . '/modules/xoopsfaq/admin/contents.php?op=active&contents_id='.$this->getVar( 'contents_id' ).'&contents_active='  . (($active==1) ? 0 : 1);
+    $url = _FAQ_URL . '/admin/contents.php?op=active&contents_id='.$this->getVar( 'contents_id' ).'&contents_active='  . (($active==1) ? 0 : 1)."&sort={$sort}&order={$order}";
     $html = "<a href='".$url."'><img src='".$img."' title='' alt=''></a>";
     //echo '===>'.$url;exit;
 		return $html;
@@ -335,7 +335,7 @@ class XoopsfaqContentsHandler extends XoopsPersistableObjectHandler {
 	function &getObj($criteria = null) {
 		$obj = false;
     
-    if ( is_null($criteria = null)) {
+    if ( is_null($criteria)) {
 		  //$criteria = new CriteriaCompo();
 		  $criteria = new CriteriaCompo();
 			$criteria->setSort('contents_cid ASC, contents_weight ASC, contents_title'  ); //  'contents_title ASC, contents_id' 
@@ -379,13 +379,33 @@ class XoopsfaqContentsHandler extends XoopsPersistableObjectHandler {
 		$obj['list'] = &$this->getObjects( $criteria, false );
 		return $obj;
 	}
-
+    
 	/**
-	 * XoopsfaqContentsHandler::displayAdminListing()
-	 *
-	 * @return
+	 * XoopsfaqContentsHandler::build_url_title($field, $oldField, $order, $title, $style)
+	 * @param string $field 
+	 * @param string $oldField 
+	 * @param string $order 
+	 * @param string $title 
+	 * @param string $style
+	 * @return string
 	 */
-	function displayAdminListing() {
+	function build_url_title($field, $oldField, $order, $title, $style) {  
+    
+    if ($field == $oldField) {
+      $order = ($order=='ASC' || $order=='' ) ? 'DESC' : 'ASC';
+      $img = "<img src='" . _FAQ_FW_ICONS_16 . '/' . $order . ".png" . "' title='' alt=''>";
+    }else{
+      $order = '';
+      $img = ""; 
+    }
+    $url = _FAQ_URL . '/admin/contents.php';
+    $tpl = "<th style='%4\$s'><a href='{$url}?sort=%1\$s&order=%2\$s'>%3\$s%5\$s</a>";
+    $link = sprintf($tpl, $field, $order, $title, $style, $img);  
+    return $link;
+  }
+		 
+	
+  function displayAdminListing() {
   /*
   */
 	global $xoopsUser;
@@ -399,25 +419,45 @@ class XoopsfaqContentsHandler extends XoopsPersistableObjectHandler {
   
   
   
-  
-  
-  
-  
-		$objects = $this->getObj();
-		$buttons = array( 'edit', 'delete' );
+// $t=print_r($_REQUEST,true);
+// echo "<pre>'{$t}</pre>";  
+    if(!isset($_REQUEST['sort'])) $_REQUEST['sort']='contents_id';
+    if(!isset($_REQUEST['order'])) $_REQUEST['order']='ASC';
 
+    if ($_REQUEST['sort'] != '')
+    {
+		  $criteria = new CriteriaCompo();
+			$criteria->setSort( $_REQUEST['sort']); 
+      $criteria->setOrder($_REQUEST['order']);
+			//$criteria->setSort( $_REQUEST['sort'], $_REQUEST['order']); 
+      //			$criteria->setSort( $_REQUEST['sort'] . ' ' . $_REQUEST['order'] ); 
+
+		}else{
+      $criteria=null;
+    }    
+  
+		$objects = $this->getObj($criteria);     
+		$buttons = array( 'edit', 'delete' );
+    $url = _FAQ_URL . '/admin/contents.php';
+    $link="<a href='{$url}?sort=%1\$s&order=%2\$s'>%3\$s</a>'";
+    $title = array();
+                
+
+		 	$title[] = $this->build_url_title('contents_id', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CONTENTS_ID, 'width: 5%;');
+		 	$title[] = $this->build_url_title('contents_title', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CONTENTS_TITLE, 'text-align: left;');
+		 	$title[] = $this->build_url_title('contents_answer', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CONTENTS_ANSWER, '');
+		 	$title[] = $this->build_url_title('contents_active', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CONTENTS_ACTIVE, '');
+		 	$title[] = $this->build_url_title('contents_cid', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CATEGORIES, '');
+		 	$title[] = $this->build_url_title('contents_weight', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CONTENTS_WEIGHT, 'width: 5%;');
+		 	$title[] = $this->build_url_title('contents_publish', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CONTENTS_PUBLISH, '');
+
+		 	$title[] = "<th style='width: 20%;'>" . _AM_FAQ_ACTIONS . "</th>";
+
+
+    
 		$ret = "<form action='contents.php?op=save_list' method='post'>";
 		$ret .= "<table width='100%' border='0' cellpadding='2' cellspacing='1' class='outer'>
-		 <tr class='xoopsCenter'>
-		 	<th style='width: 5%;'>" . _AM_FAQ_CONTENTS_ID . "</th>
-		 	<th style='text-align: left;'>" . _AM_FAQ_CONTENTS_TITLE . "</th>
-		 	<th>" . _AM_FAQ_CONTENTS_ANSWER . "</th>
-		 	<th>" . _AM_FAQ_CONTENTS_ACTIVE . "</th>
-		 	<th>" . _AM_FAQ_CATEGORIES . "</th>
-		 	<th style='width: 5%;'>" . _AM_FAQ_CONTENTS_WEIGHT . "</th>
-		 	<th>" . _AM_FAQ_CONTENTS_PUBLISH . "</th>
-		 	<th style='width: 20%;'>" . _AM_FAQ_ACTIONS . "</th>
-		 </tr>";
+		 <tr class='xoopsCenter'>" . implode('', $title) . "</tr>";
 // 		 	<th>" . _AM_FAQ_CONTENTS_SEEALSO . "</th>
 		if ( $objects['count'] > 0 ) {
 			foreach( $objects['list'] as $object ) {
@@ -432,7 +472,7 @@ class XoopsfaqContentsHandler extends XoopsPersistableObjectHandler {
 				$ret .= "<td class='even' style='text-align:center;'>" . $contents_id . "</td>";
 				$ret .= "<td style='text-align: left;' class='even'>" . $object->getVar( 'contents_title' ) . "</td>";
 				$ret .= "<td class='even'>" . $object->getAnswer() . "</td>";
-				$ret .= "<td class='even' style='text-align:center;'>" . $object->getActiveIcone() . "</td>";
+				$ret .= "<td class='even' style='text-align:center;'>" . $object->getActiveIcone($_REQUEST['sort']) . "</td>";
  //--------------------------------------------------------------------------------------------   
  /*
  */    

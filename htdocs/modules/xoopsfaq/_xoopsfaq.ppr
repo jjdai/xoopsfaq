@@ -27,7 +27,7 @@ _xoopsfaq
 			print-faq\xoopsfaq_print.js
 			print-faq\xoopsfaq_print.html
 			print-faq\xoopsfaq_view.css
-		+admin
+		-admin
 			admin\admin_header.php
 			admin\category.php
 			admin\index.php
@@ -59,7 +59,7 @@ _xoopsfaq
 			images\question2.gif
 			images\right_both.gif
 			images\slogo.png
-		+include
+		-include
 			include\functions.php
 			include\index.html
 			include\search.inc.php
@@ -84,10 +84,10 @@ _xoopsfaq
 				language\schinese_utf8\modinfo.php
 			language\index.html
 			language\tpl-language-header.php
-		-sql
+		+sql
 			sql\index.html
 			sql\mysql.sql
-		+templates
+		-templates
 			+css
 				templates\css\index.html
 				templates\css\module.css
@@ -107,38 +107,30 @@ _xoopsfaq
 		index.php
 		xoops_version.php
 [Open project files]
-0=admin\about.php
-1=admin\admin_footer.php
-2=xoops_version.php
-3=admin\admin_header.php
-4=admin\menu.php
-5=class\contents.php
-6=include\functions.php
-7=include\constantes.php
+0=include\constantes.php
+1=language\french\modinfo.php
+2=include\functions.php
+3=class\contents.php
+4=admin\contents.php
+5=sql\mysql.sql
 [Selected Project Files]
 Main=
-Selected=include\functions.php
-[admin\about.php]
-TopLine=5
-Caret=31,30
-[admin\admin_footer.php]
-TopLine=5
-Caret=1,23
-[xoops_version.php]
-TopLine=1
-Caret=40,32
-[admin\admin_header.php]
-TopLine=1
-Caret=58,21
-[admin\menu.php]
-TopLine=1
-Caret=1,25
-[class\contents.php]
-TopLine=389
-Caret=11,407
-[include\functions.php]
-TopLine=190
-Caret=1,208
+Selected=class\contents.php
 [include\constantes.php]
-TopLine=17
-Caret=36,33
+TopLine=12
+Caret=25,34
+[language\french\modinfo.php]
+TopLine=14
+Caret=45,27
+[include\functions.php]
+TopLine=1
+Caret=1,23
+[class\contents.php]
+TopLine=433
+Caret=1,453
+[admin\contents.php]
+TopLine=94
+Caret=1,115
+[sql\mysql.sql]
+TopLine=9
+Caret=19,38

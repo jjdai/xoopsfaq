@@ -89,7 +89,7 @@ class XoopsfaqCategory extends XoopsObject {
 	function getActiveIcone() {
     $active = $this->getVar( 'category_active' );
     $img = ($active==1) ? _FAQ_ON : _FAQ_OFF;
-    $url = XOOPS_URL . '/modules/xoopsfaq/admin/category.php?op=active&category_id='.$this->getVar( 'category_id' ).'&category_active='  . (($active==1) ? 0 : 1);
+    $url = _FAQ_URL . '/admin/category.php?op=active&category_id='.$this->getVar( 'category_id' ).'&category_active='  . (($active==1) ? 0 : 1);
     $html = "<a href='".$url."'><img src='".$img."' title='' alt=''></a>";
     //echo '===>'.$url;exit;
 		return $html;
