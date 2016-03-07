@@ -113,9 +113,10 @@ _xoopsfaq
 3=class\contents.php
 4=admin\contents.php
 5=sql\mysql.sql
+6=class\category.php
 [Selected Project Files]
 Main=
-Selected=class\contents.php
+Selected=class\category.php
 [include\constantes.php]
 TopLine=12
 Caret=25,34
@@ -126,11 +127,14 @@ Caret=45,27
 TopLine=1
 Caret=1,23
 [class\contents.php]
-TopLine=433
-Caret=1,453
+TopLine=415
+Caret=54,424
 [admin\contents.php]
 TopLine=94
 Caret=1,115
 [sql\mysql.sql]
 TopLine=9
 Caret=19,38
+[class\category.php]
+TopLine=215
+Caret=27,241

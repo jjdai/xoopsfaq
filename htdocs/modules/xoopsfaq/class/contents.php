@@ -421,7 +421,7 @@ class XoopsfaqContentsHandler extends XoopsPersistableObjectHandler {
   
 // $t=print_r($_REQUEST,true);
 // echo "<pre>'{$t}</pre>";  
-    if(!isset($_REQUEST['sort'])) $_REQUEST['sort']='contents_id';
+    if(!isset($_REQUEST['sort'])) $_REQUEST['sort']='contents_title';
     if(!isset($_REQUEST['order'])) $_REQUEST['order']='ASC';
 
     if ($_REQUEST['sort'] != '')

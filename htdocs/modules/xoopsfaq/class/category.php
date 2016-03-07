@@ -176,25 +176,59 @@ class XoopsfaqCategoryHandler extends XoopsPersistableObjectHandler {
 		return $obj;
 	}
 
+	function build_url_title($field, $oldField, $order, $title, $style) {  
+    
+    if ($field == $oldField) {
+      $order = ($order=='ASC' || $order=='' ) ? 'DESC' : 'ASC';
+      $img = "<img src='" . _FAQ_FW_ICONS_16 . '/' . $order . ".png" . "' title='' alt=''>";
+    }else{
+      $order = '';
+      $img = ""; 
+    }
+    $url = _FAQ_URL . '/admin/category.php';
+    $tpl = "<th style='%4\$s'><a href='{$url}?sort=%1\$s&order=%2\$s'>%3\$s%5\$s</a>";
+    $link = sprintf($tpl, $field, $order, $title, $style, $img);  
+    return $link;
+  }
+
 	/**
 	 * XoopsfaqCategoryHandler::displayAdminListing()
 	 *
 	 * @return
 	 */
 	function displayAdminListing() {
-		$objects = $this->getObj();
+    if(!isset($_REQUEST['sort'])) $_REQUEST['sort']='category_title';
+    if(!isset($_REQUEST['order'])) $_REQUEST['order']='ASC';
+
+    if ($_REQUEST['sort'] != '')
+    {
+		  $criteria = new CriteriaCompo();
+			$criteria->setSort( $_REQUEST['sort']); 
+      $criteria->setOrder($_REQUEST['order']);
+			//$criteria->setSort( $_REQUEST['sort'], $_REQUEST['order']); 
+      //			$criteria->setSort( $_REQUEST['sort'] . ' ' . $_REQUEST['order'] ); 
+
+		}else{
+      $criteria=null;
+    }    
+
+		$objects = $this->getObj($criteria);
 
 		$buttons = array( 'edit', 'delete' );
 
-    $ret  = "<form action='category.php?op=save_list' method='post'>";
-		$ret .= "<table width='100%' border='0' cellpadding='2' cellspacing='1' class='outer'>
-		 <tr class='xoopsCenter'>
-		 	<th style='width: 5%;'>" . _AM_FAQ_CATEGORY_ID . "</th>
-		 	<th style='text-align: left;'>" . _AM_FAQ_CATEGORY_TITLE . "</th>
-      <th>" . _AM_FAQ_CONTENTS_ACTIVE . "</th>
-		 	<th style='width: 5%;'>" . _AM_FAQ_CATEGORY_WEIGHT . "</th>
-		 	<th style='width: 20%;'>" . _AM_FAQ_ACTIONS . "</th>
-		 </tr>";
+     
+     $title=array();
+		 	$title[] = $this->build_url_title('category_id', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CATEGORY_ID, 'width: 5%;');
+		 	$title[] = $this->build_url_title('category_title', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CATEGORY_TITLE, 'text-align: left;');
+		 	$title[] = $this->build_url_title('category_active', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CONTENTS_ACTIVE, '');
+		 	$title[] = $this->build_url_title('category_order', $_REQUEST['sort'],  $_REQUEST['order'], _AM_FAQ_CATEGORY_WEIGHT, 'width: 5%;');
+     
+		 	$title[] = "<th style='width: 20%;'>" . _AM_FAQ_ACTIONS . "</th>";
+     
+     	$ret = "<form action='category.php?op=save_list' method='post'>";
+		  $ret .= "<table width='100%' border='0' cellpadding='2' cellspacing='1' class='outer'>
+		           <tr class='xoopsCenter'>" . implode('', $title) . "</tr>";
+
 		if ( $objects['count'] > 0 ) {
 			foreach( $objects['list'] as $object ) {
         $category_id = $object->getVar( 'category_id' );
