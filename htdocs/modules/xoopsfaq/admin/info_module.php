@@ -14,12 +14,12 @@
       $index_admin->addInfoBoxLine('id', sprintf("%1\$s : <a href='%2\$s' target='blank'>%3\$s</a>", _AM_FAQ_WEB_SITE, $xoopsModule->modinfo['website_url'], $xoopsModule->modinfo['module_website_name'])) ;    
 
   //echoArray($xoopsModule);
-      $index_admin->addInfoBox('Changelog', '200px');
-      
-      
-      $changelog = file_get_contents(_FAQ_PATH . "/docs/changelog.txt");
-      $changelog = str_replace(array("\r\n","\n"),'<br />',$changelog);
-      $index_admin->addInfoBoxLine('Changelog', $changelog, '', '', 'information');    
+//       $index_admin->addInfoBox('Changelog', '200px');
+//
+//
+//       $changelog = file_get_contents(_FAQ_PATH . "/docs/changelog.txt");
+//       $changelog = str_replace(array("\r\n","\n"),'<br />',$changelog);
+//       $index_admin->addInfoBoxLine('Changelog', $changelog, '', '', 'information');
       
       
   
