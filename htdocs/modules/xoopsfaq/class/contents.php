@@ -404,6 +404,69 @@ class XoopsfaqContentsHandler extends XoopsPersistableObjectHandler {
     return $link;
   }
 		 
+	/**
+	 * XoopsfaqContentsHandler::getOrder($sort,$order)
+	 * @param string $sort 
+	 * @param string $order 
+	 * @return string
+	 */
+	function getOrder($sort,$order) { 
+    if ($order=='ASC' || $order==''){
+      switch ($sort){
+      case 'contents_id':
+        $clause = 'contents_id';
+        break;
+      case 'contents_answer':
+        $clause = 'contents_answer';
+        break;
+      case 'contents_active':
+        $clause = 'contents_active,contents_title,contents_answer';
+        break;
+      case 'contents_cid':
+        $clause = 'contents_cid,contents_title,contents_title';
+        break;
+      case 'contents_weight':
+        $clause = 'contents_weight,contents_title,contents_answer';
+        break;
+      case 'contents_publish':
+        $clause = 'contents_publish,contents_cid,contents_title';
+        break;
+        
+      case 'contents_title':
+      default:
+        $clause = 'contents_title,contents_answer';
+        break;
+      }
+    }else{
+      switch ($sort){
+      case 'contents_id':
+        $clause = 'contents_id';
+        break;
+      case 'contents_answer':
+        $clause = 'contents_answer';
+        break;
+      case 'contents_active':
+        $clause = 'contents_active DESC,contents_title,contents_answer';
+        break;
+      case 'contents_cid':
+        $clause = 'contents_cid DESC,contents_title,contents_title';
+        break;
+      case 'contents_weight':
+        $clause = 'contents_weight DESC,contents_title,contents_answer';
+        break;
+      case 'contents_publish':
+        $clause = 'contents_publish DESC,contents_cid,contents_title';
+        break;
+      case 'contents_title':
+      default:
+        $clause = 'contents_title DESC,contents_answer';
+        break;
+      }
+    }
+    
+    return $clause;    
+  
+  } 
 	
   function displayAdminListing() {
   /*
@@ -424,17 +487,24 @@ class XoopsfaqContentsHandler extends XoopsPersistableObjectHandler {
     if(!isset($_REQUEST['sort'])) $_REQUEST['sort']='contents_title';
     if(!isset($_REQUEST['order'])) $_REQUEST['order']='ASC';
 
-    if ($_REQUEST['sort'] != '')
-    {
-		  $criteria = new CriteriaCompo();
-			$criteria->setSort( $_REQUEST['sort']); 
-      $criteria->setOrder($_REQUEST['order']);
-			//$criteria->setSort( $_REQUEST['sort'], $_REQUEST['order']); 
-      //			$criteria->setSort( $_REQUEST['sort'] . ' ' . $_REQUEST['order'] ); 
 
-		}else{
-      $criteria=null;
-    }    
+    $sort = $this->getOrder($_REQUEST['sort'], $_REQUEST['order']);
+		  $criteria = new CriteriaCompo();
+			$criteria->setSort($sort);
+      $criteria->setOrder($_REQUEST['order']);
+//     if ($_REQUEST['sort'] != '')
+//     {
+//       $sort = str_replace('ASC',$_REQUEST['order'],$_REQUEST['sort']);
+// 		  $criteria = new CriteriaCompo();
+// 			$criteria->setSort($sort);
+// 			//$criteria->setSort( ); 
+//       $criteria->setOrder($_REQUEST['order']);
+// 			//$criteria->setSort( $_REQUEST['sort'], $_REQUEST['order']); 
+//       //			$criteria->setSort( $_REQUEST['sort'] . ' ' . $_REQUEST['order'] ); 
+// 
+// 		}else{
+//       $criteria=null;
+//     }    
   
 		$objects = $this->getObj($criteria);     
 		$buttons = array( 'edit', 'delete' );

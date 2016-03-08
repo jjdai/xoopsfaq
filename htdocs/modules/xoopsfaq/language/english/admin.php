@@ -71,6 +71,7 @@ define('_AM_FAQ_CONTENTS_LIBSEEALSO', "Caption");
 define('_AM_FAQ_CONTENTS_LIBSEEALSO_DSC', "Optional caption of URL");
 define('_AM_FAQ_CONTENTS_ANSWER', "Short answer");
 define('_AM_FAQ_CONTENTS_ANSWER_DSC', "short answer for the list.");
+define('_AM_FAQ_PERM_COLSULT', "Consulter");
 define('_AM_FAQ_PERM_ADD', "Ajouter");
 define('_AM_FAQ_PERM_EDIT', "Editer");
 define('_AM_FAQ_PERM_ACTIVE', "Activer/Désactiver");

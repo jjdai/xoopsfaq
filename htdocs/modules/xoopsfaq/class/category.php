@@ -176,6 +176,15 @@ class XoopsfaqCategoryHandler extends XoopsPersistableObjectHandler {
 		return $obj;
 	}
 
+	/**
+	 * XoopsfaqContentsHandler::build_url_title($field, $oldField, $order, $title, $style)
+	 * @param string $field 
+	 * @param string $oldField 
+	 * @param string $order 
+	 * @param string $title 
+	 * @param string $style
+	 * @return string
+	 */
 	function build_url_title($field, $oldField, $order, $title, $style) {  
     
     if ($field == $oldField) {
@@ -191,6 +200,50 @@ class XoopsfaqCategoryHandler extends XoopsPersistableObjectHandler {
     return $link;
   }
 
+	/**
+	 * XoopsfaqContentsHandler::getOrder($sort,$order)
+	 * @param string $sort 
+	 * @param string $order 
+	 * @return string
+	 */
+  	function getOrder($sort,$order) { 
+    if ($order=='ASC' || $order==''){
+      switch ($sort){
+      case 'category_id':
+        $clause = 'category_id';
+        break;
+      case 'category_active':
+        $clause = 'category_active,category_title';
+        break;
+      case 'category_order':
+        $clause = 'category_order,category_title';
+        break;
+      case 'category_title':
+      default:
+        $clause = 'category_title';
+        break;
+      }
+    }else{
+      switch ($sort){
+      case 'category_id':
+        $clause = 'category_id';
+        break;
+      case 'category_active':
+        $clause = 'category_active DESC,category_title';
+        break;
+      case 'category_order':
+        $clause = 'category_order DESC,category_title';
+        break;
+      case 'category_title':
+      default:
+        $clause = 'category_title';
+        break;
+      }
+    }
+    
+    return $clause;    
+  
+  } 
 	/**
 	 * XoopsfaqCategoryHandler::displayAdminListing()
 	 *

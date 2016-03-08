@@ -2,8 +2,6 @@
 Compilator.SaveAll=0
 Compilator.Capture=0
 Compilator.HideOutput=0
-Compilator.ProgSaveAll=0
-Compilator.ProgRunSelection=0
 Compilator.LogType=0
 DefaultDir=F:\_mini_server_n6\udrive\www\xmodules\modules\xoopsfaq
 DefaultCPIndex=0
@@ -66,7 +64,7 @@ _xoopsfaq
 			include\constantes.php
 			include\install.php
 			admin\about.php
-		-language
+		+language
 			-english
 				language\english\admin.php
 				language\english\index.html
@@ -111,30 +109,30 @@ _xoopsfaq
 1=language\french\modinfo.php
 2=include\functions.php
 3=class\contents.php
-4=admin\contents.php
-5=sql\mysql.sql
-6=class\category.php
+4=class\category.php
+5=index.php
+6=class\permissions.php
 [Selected Project Files]
 Main=
-Selected=class\category.php
+Selected=class\permissions.php
 [include\constantes.php]
-TopLine=12
-Caret=25,34
+TopLine=20
+Caret=26,68
 [language\french\modinfo.php]
-TopLine=14
+TopLine=1
 Caret=45,27
 [include\functions.php]
-TopLine=1
-Caret=1,23
+TopLine=464
+Caret=32,476
 [class\contents.php]
-TopLine=415
-Caret=54,424
-[admin\contents.php]
-TopLine=94
-Caret=1,115
-[sql\mysql.sql]
-TopLine=9
-Caret=19,38
+TopLine=57
+Caret=1,76
 [class\category.php]
-TopLine=215
-Caret=27,241
+TopLine=195
+Caret=1,209
+[index.php]
+TopLine=19
+Caret=34,44
+[class\permissions.php]
+TopLine=38
+Caret=21,57

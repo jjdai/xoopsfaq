@@ -51,35 +51,9 @@ define('_FAQ_PRINTER', _FAQ_FW_ICONS_16 . "printer.png");
 define('_FAQ_MAIL', _FAQ_FW_ICONS_16 . "mail_forward.png");
 define('_FAQ_UP', _FAQ_FW_ICONS_16 . "up.png");
 
-// 
-// define('_FAQ_BLANK', _FAQ_ICONE16 . "blank.gif");
-// define('_FAQ_ON',  _FAQ_ICONE16 . "on.png");
-// define('_FAQ_OFF', _FAQ_ICONE16 . "off.png");
-// define('_FAQ_DELETE', _FAQ_ICONE16 . "delete.png");
-// define('_FAQ_ATTACH', _FAQ_ICONE16 . "attach.png");
-// define('_FAQ_ADD', _FAQ_ICONE16 . "add.png");
-// define('_FAQ_EDIT', _FAQ_ICONE16 . "edit.png");
-// define('_FAQ_PRINTER', _FAQ_ICONE16 . "printer.png");
-// define('_FAQ_MAIL', _FAQ_ICONE16 . "mail_new.png");
-// define('_FAQ_UP', _FAQ_ICONE16 . "up.png");
 define('_FAQ_FAT_PROCOCOLE', '__protocole__');
 
 /*********************************************************************/
-//utilise dans la la liste déroulante de l'admin des permissions
-//les nombre negatif indique des code d'administration
-// 0 indique le trait de separation
-//les nombre positif corrresponde aux id de la table photowalls
-// define ("__PERM_ADMIN", -1);
-// define ("__PERM_TRAIT",  0);
-// define ("__PERM_ADD_WALL",  1);
-
-//code des permissions
-// define ("_FAQ_PERM_ADD_CAT",  1);
-// define ("_FAQ_PERM_EDIT_CAT",  2);
-// define ("_FAQ_PERM_DELETE_CAT",  3);
-// define ("_FAQ_PERM_ADD_FAQ",  4);
-// define ("_FAQ_PERM_EDIT_FAQ",  5);
-// define ("_FAQ_PERM_DELETE_FAQ",  6);
 
 define ("_FAQ_PERM_CAT",  'xoopsfaq_cat');
 define ("_FAQ_PERM_FAQ",  'xoopsfaq_faq');
@@ -90,6 +64,7 @@ define ("_FAQ_PERM_ACTIVE",  3);
 define ("_FAQ_PERM_DELETE",  4);
 define ("_FAQ_PERM_PRINT",  5);
 define ("_FAQ_PERM_MAILTO",  6);
-define ("_FAQ_PERM_NB",  _FAQ_PERM_MAILTO + 1);
+define ("_FAQ_PERM_COLSULT",  7);
+define ("_FAQ_PERM_NB",  _FAQ_PERM_COLSULT + 1);
 
 ?>

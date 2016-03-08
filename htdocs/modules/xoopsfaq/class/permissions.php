@@ -54,7 +54,7 @@ $faq = 'faq';
     $perm_desc = _AM_FAQ_PERMISSIONS_CAT_DESC;
     $tLib = array(_FAQ_PERM_EDIT     => _AM_FAQ_PERM_EDIT,      
                   _FAQ_PERM_ADD      => _AM_FAQ_PERM_ADD,
-                  //_FAQ_PERM_ACTIVE   => _AM_FAQ_PERM_ACTIVE,      
+                  //_FAQ_PERM_COLSULT   => _AM_FAQ_PERM_COLSULT,      
                   _FAQ_PERM_DELETE   => _AM_FAQ_PERM_DELETE);      
     $form = new XoopsGroupPermForm($title_of_form, $this->module_id, $perm_name, $perm_desc, $url, true);
     while (list($key, $val)= each ($tLib)){

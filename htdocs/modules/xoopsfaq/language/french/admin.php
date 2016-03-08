@@ -71,6 +71,7 @@ define('_AM_FAQ_CONTENTS_LIBSEEALSO', "Libellé");
 define('_AM_FAQ_CONTENTS_LIBSEEALSO_DSC', "Libellé optionel de l'URL");
 define('_AM_FAQ_CONTENTS_ANSWER', "Réponse courte");
 define('_AM_FAQ_CONTENTS_ANSWER_DSC', "Réponse courte affichée dans les listes.");
+define('_AM_FAQ_PERM_COLSULT', "Consulter");
 define('_AM_FAQ_PERM_ADD', "Ajouter");
 define('_AM_FAQ_PERM_EDIT', "Editer");
 define('_AM_FAQ_PERM_ACTIVE', "Activer/Désactiver");
