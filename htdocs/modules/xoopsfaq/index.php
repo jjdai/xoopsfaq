@@ -39,12 +39,7 @@ if ( $cat_id < 1 ) {
 
 		foreach( $objects['list'] as $object ) {
 			$category = array();
-			$category['id'] = $object->getVar( 'category_id' );
-      
-      if (!xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_CONSULT, false)) {
-
-      
-      
+			$category['id'] = $object->getVar( 'category_id' );     
 			$category['name'] = $object->getVar( 'category_title' );
 			$contentsObj = $content_handler->getPublished( $object->getVar( 'category_id' ) );
 			if ( $contentsObj['count'] ) {

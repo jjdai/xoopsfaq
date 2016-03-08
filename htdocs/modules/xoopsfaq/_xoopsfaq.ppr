@@ -2,6 +2,8 @@
 Compilator.SaveAll=0
 Compilator.Capture=0
 Compilator.HideOutput=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
 Compilator.LogType=0
 DefaultDir=F:\_mini_server_n6\udrive\www\xmodules\modules\xoopsfaq
 DefaultCPIndex=0
@@ -110,16 +112,17 @@ _xoopsfaq
 2=include\functions.php
 3=class\contents.php
 4=class\category.php
-5=index.php
-6=class\permissions.php
+5=..\..\kernel\object.php
+6=index.php
+7=class\permissions.php
 [Selected Project Files]
 Main=
 Selected=class\permissions.php
 [include\constantes.php]
-TopLine=20
+TopLine=46
 Caret=26,68
 [language\french\modinfo.php]
-TopLine=1
+TopLine=14
 Caret=45,27
 [include\functions.php]
 TopLine=464
@@ -130,6 +133,9 @@ Caret=1,76
 [class\category.php]
 TopLine=195
 Caret=1,209
+[..\..\kernel\object.php]
+TopLine=749
+Caret=1,689
 [index.php]
 TopLine=19
 Caret=34,44
