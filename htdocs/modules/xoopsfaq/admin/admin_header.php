@@ -18,8 +18,6 @@ require_once XOOPS_ROOT_PATH . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'd
 require_once XOOPS_ROOT_PATH . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'dirname' ) . '/include/constantes.php';
 global $isFwModuleAdmin;
 
-$faq_path32 = '../../Frameworks/moduleclasses/icons/32/';
-
   if (!xoopsfaq_isAdminModule())
   {
 		redirect_header(XOOPS_URL."/",3,_NOPERM);
@@ -27,7 +25,7 @@ $faq_path32 = '../../Frameworks/moduleclasses/icons/32/';
   }
 
 if (xoopsFaq_checkModuleAdmin()){
-  $variable_name = new ModuleAdmin();
+  $index_admin = new ModuleAdmin();
   $isFwModuleAdmin = 1;
 }
 

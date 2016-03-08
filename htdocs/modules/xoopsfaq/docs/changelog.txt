@@ -1,7 +1,15 @@
-
-=>version 2.8 du 02/02/2016 (Jean-Jacques DELALANDRE)
+=> Version 2.9 du 08/03/2016 (JJDai-Jean-Jacques DELALANDRE)
 -----------------------------------------------------
--changement dans la structure des table et mise à jour du fichier mysql.sql et du fichier install.php
+- Ajout du tri sur les titres des categories dans l'admin
+- Ajout du tri sur les titres des questions dans l'admin
+- Correction de la page "about"
+- correction du chemins des icones sur le framework moduleadmin
+- Correction du nom des clés "release_date"e et "module_status" dans le fichier xoops_version.php
+- nettoyage du code dans "function.php"
+
+=> Version 2.8 du 02/02/2016 (JJDai-Jean-Jacques DELALANDRE)
+-----------------------------------------------------
+- changement dans la structure des table et mise à jour du fichier mysql.sql et du fichier install.php
      -table categories changement de type des champs suivants
       `category_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `category_order` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -32,7 +40,7 @@
 - mailto: ajout d'un appel à tellafriend pour faire suivre un mail avec la faq consultée.
           tellafriend v2.0 ou supérieur doit être installé pour utiliser cette fonctionalité.
               
-=>version 2.1 du 25/01/2016 (Jean-Jacques DELALANDRE)
+=> Version 2.1 du 25/01/2016 (JJDai-Jean-Jacques DELALANDRE)
 ------------------------------------------------------
 - Intégration du framework "moduleadmin"
 - adaptatation du fichier "menu.php" pour le "blue move"

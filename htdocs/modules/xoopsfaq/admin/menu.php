@@ -20,7 +20,7 @@
  * @version $Id: menu.php 0000 10/04/2009 08:55:20 John Neill $
  */
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
-
+include_once "../include/constantes.php";
 
 $faq_path32 = '../../Frameworks/moduleclasses/icons/32/';
 /**
@@ -44,7 +44,8 @@ $adminmenu[] = array( 'title' => _MI_FAQ_MENU_QUESTIONS,
                       'icon' => $faq_path32 . 'translations.png',
                       'menu' => 'questions',
                       'desc' => '' );
-                      
+// $t = print_r($adminmenu,true);
+// echo "<pre>".$t."</pre>";                      
 //---------------------------------------------------------------
 // -- onglet permission                      
 global $xoopsUser,$xoopsModule,$xoopsmod,$xoopsModuleConfig;

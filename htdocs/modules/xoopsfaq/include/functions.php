@@ -22,67 +22,6 @@
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 include_once 'constantes.php';
 
-/**
- * loadModuleAdminMenu()
- *
- * @param mixed $currentoption
- * @param string $breadcrumb
- * @return
- */
-// function xoopsFaq_AdminMenu( $currentoption, $breadcrumb = '' ) {
-// 	if ( !$adminmenu = $GLOBALS["xoopsModule"]->getAdminMenu() ) {
-// 		return false;
-// 	}
-// 
-// 	$breadcrumb = empty( $breadcrumb ) ? $adminmenu[$currentoption]["title"] : $breadcrumb;
-// 	$module_link = XOOPS_URL . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'dirname' ) . '/';
-// 	$image_link = XOOPS_URL . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'dirname' ) . '/images';
-// 
-// 	$adminmenu_text = '
-//     <style type="text/css">
-//     <!--
-//     #buttontop { float:left; width:100%; background: #e7e7e7; font-size:93%; line-height:normal; border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black; margin: 0;}
-//     #buttonbar { float:left; width:100%; background: #e7e7e7 url("' . $image_link . '/modadminbg.gif") repeat-x left bottom; font-size:93%; line-height:normal; border-left: 1px solid black; border-right: 1px solid black; margin-bottom: 12px;}
-//     #buttonbar ul { margin:0; margin-top: 15px; padding:10px 10px 0; list-style:none; }
-//     #buttonbar li { display:inline; margin:0; padding:0; }
-//     #buttonbar a { float:left; background:url("' . $image_link . '/left_both.gif") no-repeat left top; margin:0; padding:0 0 0 9px; border-bottom:1px solid #000; text-decoration:none; }
-//     #buttonbar a span { float:left; display:block; background:url("' . $image_link . '/right_both.gif") no-repeat right top; padding:5px 15px 4px 6px; font-weight:bold; color:#765; }
-//     /* Commented Backslash Hack hides rule from IE5-Mac \*/
-//     #buttonbar a span {float:none;}
-//     /* End IE5-Mac hack */
-//     #buttonbar a:hover span { color:#333; }
-//     #buttonbar .current a { background-position:0 -150px; border-width:0; }
-//     #buttonbar .current a span { background-position:100% -150px; padding-bottom:5px; color:#333; }
-//     #buttonbar a:hover { background-position:0% -150px; }
-//     #buttonbar a:hover span { background-position:100% -150px; }
-//     //-->
-//     </style>
-//     <div id="buttontop">
-//      <table style="width: 100%; padding: 0; " cellspacing="0">
-//          <tr>
-//              <td style="width: 70%; font-size: 10px; text-align: left; color: #2F5376; padding: 0 6px; line-height: 18px;">
-//                  <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=preferences&op=showmod&mod=' . $GLOBALS["xoopsModule"]->getVar( "mid" ) . '">' . _PREFERENCES . '</a> |
-// 				 <a href="../index.php">' . _MI_FAQ_MENU_MODULEHOME . '</a> |
-// 				 <a href="../index.php">' . _MI_FAQ_MENU_MODULEBLOCKS . '</a> |
-// 				 <a href="../index.php">' . _MI_FAQ_MENU_MODULETEMPLATES . '</a> |
-// 				 <a href="../index.php">' . _MI_FAQ_MENU_MODULECOMMENTS . '</a>
-//              </td>
-//              <td style="width: 30%; font-size: 10px; text-align: right; color: #2F5376; padding: 0 6px; line-height: 18px;">
-//                  <strong>' . $GLOBALS["xoopsModule"]->getVar( "name" ) . '</strong>&nbsp;' . $breadcrumb . '
-//              </td>
-//          </tr>
-//      </table>
-//     </div>
-//     <div id="buttonbar">
-//      <ul>';
-// 	foreach ( array_keys( $adminmenu ) as $key ) {
-// 		$adminmenu_text .= ( ( $currentoption == $key ) ? '<li class="current">' : '<li>' ) . '<a href="' . $module_link . $adminmenu[$key]["link"] . '"><span>' . $adminmenu[$key]["title"] . '</span></a></li>';
-// 	}
-// 	$adminmenu_text .= '
-//      </ul>
-//     </div><br style="clear:both;" />';
-// 	echo $adminmenu_text;
-// }
 
 /**
  * xoopsFaq_CleanVars()
@@ -429,47 +368,6 @@ $bolOk = 0;
   }
 }
 
-/************************************************************
- *
- ***********************************************************/
-
-// function xoopsfaq_isManager()
-// {    
-// global $xoopsUser, $xoopsModuleConfig;
-// $bolOk=0;
-// 
-// $moduleperm_handler =& xoops_gethandler('groupperm');
-//   if ($xoopsUser) 
-//   {
-//       $url_arr = explode('/', strstr($_SERVER['REQUEST_URI'], '/modules/'));
-//       $module_handler =& xoops_gethandler('module');
-//       $xoopsModule =& $module_handler->getByDirname($url_arr[2]);
-//       unset($url_arr);
-//    
-//       if (!$moduleperm_handler->checkRight('module_admin', $xoopsModule->getVar('mid'), $xoopsUser->getGroups())) 
-//       {
-//           $bolOk = 0;
-//       }else 
-//       {
-//       
-//       $permissions = xoopsfaq_getPermissions();
-//       if (($permissions && 2)>0)  $bolOk = $permissions;
-// //       echoA($g);
-// //       echoA($userGroups,'user');
-// //       echoA($moduleGroups,'module');
-//       
-//       }
-//   
-//       
-//   } else 
-//   {
-//       $bolOk = 0;
-//   }
-//   
-//    return $bolOk;
-// 
-// }
-
 /******************************************************************
  *
  ******************************************************************/ 
@@ -545,28 +443,13 @@ function xoopsfaq_isAdminModule()
 global $xoopsUser,$xoopsModule,$xoopsmod;
 $bolOk = false;
   if ( $xoopsUser ) {
-  echo "<hr>"._FAQ_DIRNAME."<hr>";
+    //echo "<hr>"._FAQ_DIRNAME."<hr>";
   	$xoopsModule = XoopsModule::getByDirname(_FAQ_DIRNAME);
   	$bolOk =  $xoopsUser->isAdmin($xoopsModule->mid()) ;
   }
   return $bolOk;
 }
 
-
-// function xoopsfaq_isAdmin()
-// {
-// global $xoopsUser,$xoopsModule,$xoopsmod;
-//   if ( $xoopsUser ) {
-//   	$xoopsModule = XoopsModule::getByDirname(_FAQ_DIRNAME);
-//   	if ( !$xoopsUser->isAdmin($xoopsModule->mid()) ) {
-//   		redirect_header(XOOPS_URL."/",3,_NOPERM);
-//       exit();
-//   	}
-//   } else {
-//   	redirect_header(XOOPS_URL."/",3,_NOPERM);
-//   	exit();
-//   }
-// }
 
 /************************************************************
  *
@@ -592,37 +475,5 @@ function xoopsfaq_isTellafriend()
   return false;
 }
 
-/************************************************************
- *
- ***********************************************************/
-
-// function xoopsfaq_isModuleAsmin()
-// {    
-// global $xoopsUser, $xoopsModuleConfig;
-// $bolOk=false;
-// 
-// $moduleperm_handler =& xoops_gethandler('groupperm');
-//   if ($xoopsUser) 
-//   {
-//       $url_arr = explode('/', strstr($_SERVER['REQUEST_URI'], '/modules/'));
-//       $module_handler =& xoops_gethandler('module');
-//       $xoopsModule =& $module_handler->getByDirname($url_arr[2]);
-//       unset($url_arr);
-//    
-//       if (!$moduleperm_handler->checkRight('module_admin', $xoopsModule->getVar('mid'), $xoopsUser->getGroups())) 
-//       {
-//           $bolOk = false;
-//       }else 
-//       {
-//           $bolOk = true;
-//       }
-//   } else 
-//   {
-//       $bolOk = false;
-//   }
-//   
-//    return $bolOk;
-// 
-// }
 
 ?>

@@ -20,7 +20,7 @@
 
 echo "<div class='adminfooter'>\n"
     ."  <div style='text-align: center;'>\n"
-		.'<a href="' . $xoopsModule->getInfo( 'website_url' ) . '" target="_blank">' . xoopsFaq_showImage( 'xoopsmicrobutton', 'XOOPS', 'XOOPS', 'gif' ) . '    ."  </div>\n"
+		.'<a href="' . $xoopsModule->getInfo( 'website_url' ) . '" target="_blank">' . xoopsFaq_showImage( 'xoopsmicrobutton', 'XOOPS', 'XOOPS', 'gif' )     ."  </div>\n"
     ."	</a>"
     ."  " . _AM_MODULEADMIN_ADMIN_FOOTER . "\n"
     ."</div>";

@@ -18,13 +18,13 @@
  * @version    $Id $
  */
 
-include_once dirname(__FILE__) . '/admin_header.php';
+include_once 'admin_header.php';
 
 xoops_cp_header();
 
-$aboutAdmin = new ModuleAdmin();
+//$index_admin = new ModuleAdmin();
 
-echo $aboutAdmin->addNavigation('about.php');
-echo $aboutAdmin->renderAbout('6KJ7RW5DR3VTJ', false);
+echo $index_admin->addNavigation('about.php');
+echo $index_admin->renderAbout('6KJ7RW5DR3VTJ', false);
 
-include 'admin_footer.php';
+include_once 'admin_footer.php';

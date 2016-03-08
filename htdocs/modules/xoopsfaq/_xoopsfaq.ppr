@@ -27,7 +27,7 @@ _xoopsfaq
 			print-faq\xoopsfaq_print.js
 			print-faq\xoopsfaq_print.html
 			print-faq\xoopsfaq_view.css
-		-admin
+		+admin
 			admin\admin_header.php
 			admin\category.php
 			admin\index.php
@@ -42,7 +42,7 @@ _xoopsfaq
 			class\contents.php
 			class\index.html
 			class\permissions.php
-		-docs
+		+docs
 			docs\changelog.txt
 			docs\index.html
 			docs\readme.txt
@@ -115,18 +115,26 @@ _xoopsfaq
 5=..\..\kernel\object.php
 6=index.php
 7=class\permissions.php
+8=admin\about.php
+9=admin\index.php
+10=admin\admin_footer.php
+11=admin\category.php
+12=admin\admin_header.php
+13=xoops_version.php
+14=..\..\Frameworks\moduleclasses\moduleadmin\moduleadmin.php
+15=docs\changelog.txt
 [Selected Project Files]
 Main=
-Selected=class\permissions.php
+Selected=docs\changelog.txt
 [include\constantes.php]
-TopLine=46
-Caret=26,68
+TopLine=6
+Caret=21,26
 [language\french\modinfo.php]
 TopLine=14
 Caret=45,27
 [include\functions.php]
-TopLine=464
-Caret=32,476
+TopLine=1
+Caret=1,371
 [class\contents.php]
 TopLine=57
 Caret=1,76
@@ -134,11 +142,35 @@ Caret=1,76
 TopLine=195
 Caret=1,209
 [..\..\kernel\object.php]
-TopLine=749
+TopLine=689
 Caret=1,689
 [index.php]
-TopLine=19
-Caret=34,44
+TopLine=18
+Caret=76,36
 [class\permissions.php]
-TopLine=38
+TopLine=48
 Caret=21,57
+[admin\about.php]
+TopLine=5
+Caret=18,27
+[admin\index.php]
+TopLine=7
+Caret=1,23
+[admin\admin_footer.php]
+TopLine=1
+Caret=148,23
+[admin\category.php]
+TopLine=124
+Caret=17,139
+[admin\admin_header.php]
+TopLine=7
+Caret=113,18
+[xoops_version.php]
+TopLine=27
+Caret=1,51
+[..\..\Frameworks\moduleclasses\moduleadmin\moduleadmin.php]
+TopLine=474
+Caret=111,486
+[docs\changelog.txt]
+TopLine=1
+Caret=27,8

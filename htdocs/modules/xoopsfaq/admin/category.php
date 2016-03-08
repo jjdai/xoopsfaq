@@ -19,7 +19,7 @@
  * @author John Neill
  * @version $Id: category.php 0000 10/04/2009 08:57:46 John Neill $
  */
-include 'admin_header.php';
+include_once 'admin_header.php';
 
 $category_handler = &xoops_getModuleHandler( 'category' );
 
