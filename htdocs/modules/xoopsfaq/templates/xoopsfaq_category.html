@@ -1,6 +1,10 @@
 <div class="page_headline"><span class="itemTitle"><{$smarty.const._MD_FAQ_XOOPSFAQ}></span></div>
 <br />
-<a id="top" name="top"><a href="index.php"><{$smarty.const._MD_FAQ_MAIN}></a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;<b><{$category_name}></b><br /><br />
+<a id="top" name="top"><a href="index.php"><{$smarty.const._MD_FAQ_MAIN}></a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;<b><{$category_name}></b>
+      <{assign var='btns' value=$btnsCat}>
+      <{include file="db:xoopsfaq_btn_contents.html"}>
+
+
 <table width="100%" class="outer" cellspacing="1">
   <tr>
     <th colspan="2"><{$smarty.const._MD_FAQ_TOC}></th>
@@ -17,7 +21,7 @@
     </td>
   </tr>
 </table>
-
+  
 <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);">
 
 <table width="100%" class="outer" cellspacing="1">

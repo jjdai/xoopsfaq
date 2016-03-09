@@ -249,8 +249,8 @@ function xoopsFaq_transformDate2Local($mydate){
               'title'=> _MD_FAQ_MAILTO,  
               //'url'=>$url_module ."/index.php?cat_id=1#q",
               //le Z dans #cidZCategorie est volontaire pour le différencier 
-              //de #cidCategorie dans le template de transformation pour tellafriend
-              'url'=>$url_module ."/index.php?cat_id=idCategorie#cidZCategorie",
+              //de idCategorie dans le template de transformation pour tellafriend
+              'url'=>$url_module ."/index.php?cat_id=idZCategorie#cidZCategorie",
               //'url'=>'https://"ssss' ."/index.php?cat_id=idCategorie#qidContents",
               //'url'=> str_replace("://", 'xxx', $url_module)."/index.php?cat_id=idCategorie#qidContents",
               'action'=>'mailto');       
