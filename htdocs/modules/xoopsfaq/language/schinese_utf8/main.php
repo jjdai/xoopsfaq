@@ -42,5 +42,8 @@ define('_MD_FAQ_PRINT_ALERT1', "Pour l'impression du fond de page, dans le menu"
 define('_MD_FAQ_PRINT_ALERT2', "Fichier->Mise en page");
 define('_MD_FAQ_PRINT_ALERT3', "du navigateur activer ou désactiver l'option ");
 define('_MD_FAQ_PRINT_ALERT4', "Imprimer le fond de page");
+define('_MD_FAQ_ADD_QUESTION', "Add a FAQ");
+define('_MD_FAQ_MAILTO', "Sens a mail");
+define('_MD_FAQ_CATEGORY', "Catégory");
 
 ?>

@@ -25,6 +25,11 @@
  */
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 
+$modulePath =  dirname(__FILE__);
+//echo "===>" . $modulePath."<hr>";
+require_once $modulePath.'/include/constantes.php';
+require_once $modulePath.'/language/' . $GLOBALS['xoopsConfig']['language'] . '/modinfo.php';
+
 /**
  * Module configs
  */
@@ -36,9 +41,9 @@ $modversion = array( 'name' => _MI_FAQ_XOOPSFAQ_NAME,
 	'license_url' => 'www.gnu.org/licenses/gpl-2.0.html/',
 	'contributors' => '',
 	'credits' => 'The Xoops Module Development Team',
-	'version' => 2.9,
+	'version' => 2.10,
 	'module_status' => 'RC1',
-	'release_date' => '2016/03/08',
+	'release_date' => '2016/03/09',
 	'official' => 1,
 	'image' => 'images/slogo.png',
 	'website_url' => 'http://www.xoops.org',

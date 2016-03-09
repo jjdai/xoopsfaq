@@ -219,35 +219,91 @@ function xoopsFaq_transformDate2Local($mydate){
 
 }
 
-
 /*******************************************************************
  *
  ********************************************************************/
- function xoopsFaq_getBtnForUserInterface($addUpBtn = false)
+ function xoopsFaq_getBtnForUserInterfaceCat($addUpBtn = false)
  {
  
  $btn = array();   
- $perms = xoopsfaq_getAPermissions(_FAQ_PERM_FAQ);
+ $faqPerms = xoopsfaq_getAPermissions(_FAQ_PERM_FAQ);
+ $catPerms = xoopsfaq_getAPermissions(_FAQ_PERM_CAT, false);
  $url_module = _FAQ_URL;       
       
  //echoA($perms,'interface-' . _FAQ_PERM_FAQ);
  //----------------------------------------------------
- if ( $perms[_FAQ_PERM_PRINT])
+ if ( $catPerms[_FAQ_PERM_PRINT])
+ {
+   $b = array('icone'=>_FAQ_PRINTER, 
+              'title'=> _MD_FAQ_PRINTER,  
+              'url'=> $url_module ."/print-faq/xoopsfaq_print.php?op=print&category_id=",
+              'onclick' => 1,
+              'action'=>'onclickCat');
+   $btn[] = $b;
+ }
+ //----------------------------------------------------
+//     <a target="_top" href="<{$mail_link|xoops_tellafriend}>">
+ if ( $catPerms[_FAQ_PERM_MAILTO] && xoopsfaq_isTellafriend())
+ {
+   $b = array('icone'=>_FAQ_MAIL, 
+              'title'=> _MD_FAQ_MAILTO,  
+              //'url'=>$url_module ."/index.php?cat_id=1#q",
+              //le Z dans #cidZCategorie est volontaire pour le différencier 
+              //de #cidCategorie dans le template de transformation pour tellafriend
+              'url'=>$url_module ."/index.php?cat_id=idCategorie#cidZCategorie",
+              //'url'=>'https://"ssss' ."/index.php?cat_id=idCategorie#qidContents",
+              //'url'=> str_replace("://", 'xxx', $url_module)."/index.php?cat_id=idCategorie#qidContents",
+              'action'=>'mailto');       
+   $btn[] = $b;
+ }
+ //----------------------------------------------------
+ if ( $faqPerms[_FAQ_PERM_ADD])
+ {
+  $b = array('icone'=>_FAQ_ADD,     
+              'title'=> _MD_FAQ_ADD_QUESTION,    
+              'url'=>$url_module . "/admin/contents.php?op=add&value=Cr%C3%A9er%20nouvel%20item",
+              'action'=>'');
+   $btn[] = $b;
+ }
+ 
+
+     //----------------------------------------------------
+// $t=print_r($btn,true);
+// echo "<pre>{$t}</pre>";
+
+ return $btn;
+  
+}
+
+
+/*******************************************************************
+ *
+ ********************************************************************/
+ function xoopsFaq_getBtnForUserInterfaceFaq($addUpBtn = false)
+ {
+ 
+ $btn = array();   
+ $faqPerms = xoopsfaq_getAPermissions(_FAQ_PERM_FAQ);
+ $url_module = _FAQ_URL;       
+      
+ //echoA($faqPerms,'interface-' . _FAQ_PERM_FAQ);
+ //----------------------------------------------------
+ if ( $faqPerms[_FAQ_PERM_PRINT])
  {
    $b = array('icone'=>_FAQ_PRINTER, 
               'title'=> _MD_FAQ_PRINTER,  
               'url'=> $url_module ."/print-faq/xoopsfaq_print.php?op=print&contents_id=",
               'onclick' => 1,
-              'action'=>'onclick');
+              'action'=>'onclickFaq');
    $btn[] = $b;
  }
  
  //----------------------------------------------------
 //     <a target="_top" href="<{$mail_link|xoops_tellafriend}>">
- if ( $perms[_FAQ_PERM_MAILTO] && xoopsfaq_isTellafriend())
+ if ( $faqPerms[_FAQ_PERM_MAILTO] && xoopsfaq_isTellafriend())
  {
    $b = array('icone'=>_FAQ_MAIL, 
-              'title'=> _MI_FAQ_MAILTO,  
+              'title'=> _MD_FAQ_MAILTO,  
               //'url'=>$url_module ."/index.php?cat_id=1#q",
               'url'=>$url_module ."/index.php?cat_id=idCategorie#qidContents",
               //'url'=>'https://"ssss' ."/index.php?cat_id=idCategorie#qidContents",
@@ -263,7 +319,7 @@ function xoopsFaq_transformDate2Local($mydate){
  
                                    
  //----------------------------------------------------
- if ( $perms[_FAQ_PERM_EDIT])
+ if ( $faqPerms[_FAQ_PERM_EDIT])
  {
     $b = array('icone'=>_FAQ_EDIT,    
                'title'=> _EDIT,   
@@ -273,18 +329,18 @@ function xoopsFaq_transformDate2Local($mydate){
  }
      
  //----------------------------------------------------
- if ( $perms[_FAQ_PERM_ADD])
- {
-  $b = array('icone'=>_FAQ_ADD,     
-              'title'=> _ADD,    
-              'url'=>$url_module . "/admin/contents.php?op=add&value=Cr%C3%A9er%20nouvel%20item",
-               'action'=>'');
-   $btn[] = $b;
- }
+//  if ( $faqPerms[_FAQ_PERM_ADD])
+//  {
+//   $b = array('icone'=>_FAQ_ADD,     
+//               'title'=> _ADD,    
+//               'url'=>$url_module . "/admin/contents.php?op=add&value=Cr%C3%A9er%20nouvel%20item",
+//                'action'=>'');
+//    $btn[] = $b;
+//  }
  
  
      //----------------------------------------------------
- if ( $perms[_FAQ_PERM_DELETE])
+ if ( $faqPerms[_FAQ_PERM_DELETE])
  {
      $b = array('icone'=>_FAQ_DELETE,  
                 'title'=> _DELETE, 

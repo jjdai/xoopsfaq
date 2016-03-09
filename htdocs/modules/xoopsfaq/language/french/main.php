@@ -40,7 +40,10 @@ define('_MD_FAQ_COPYRYGHT1', "Copyright");
 define('_MD_FAQ_COPYRYGHT2', "Tout droit de reproduction réservé");
 define('_MD_FAQ_PRINT_ALERT1', "Pour l'impression du fond de page, dans le menu");
 define('_MD_FAQ_PRINT_ALERT2', "Fichier->Mise en page");
-define('_MD_FAQ_PRINT_ALERT3', "du navigateur activer ou désactiver l'option ");
+define('_MD_FAQ_PRINT_ALERT3', "du navigateur </br>activer ou désactiver l'option ");
 define('_MD_FAQ_PRINT_ALERT4', "Imprimer le fond de page");
+define('_MD_FAQ_ADD_QUESTION', "Ajouter une question");
+define('_MD_FAQ_MAILTO', "Envoyer un courriel");
+define('_MD_FAQ_CATEGORY', "Catégorie");
 
 ?>

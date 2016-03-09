@@ -52,7 +52,9 @@ $faq = 'faq';
     $url = 'admin/permissions.php?perm=' . $cat;
     $title_of_form = _AM_FAQ_PERMISSIONS_CAT;
     $perm_desc = _AM_FAQ_PERMISSIONS_CAT_DESC;
-    $tLib = array(_FAQ_PERM_EDIT     => _AM_FAQ_PERM_EDIT,      
+    $tLib = array(_FAQ_PERM_PRINT    => _AM_FAQ_PERM_PRINT,
+                  _FAQ_PERM_MAILTO   => _AM_FAQ_PERM_MAILTO,
+                  _FAQ_PERM_EDIT     => _AM_FAQ_PERM_EDIT,      
                   _FAQ_PERM_ADD      => _AM_FAQ_PERM_ADD,
                   //_FAQ_PERM_COLSULT   => _AM_FAQ_PERM_COLSULT,      
                   _FAQ_PERM_DELETE   => _AM_FAQ_PERM_DELETE);      

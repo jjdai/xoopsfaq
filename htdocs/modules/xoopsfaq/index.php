@@ -55,9 +55,11 @@ if ( $cat_id < 1 ) {
 			unset( $category );
 		}
 	}
-  $btns = xoopsFaq_getBtnForUserInterface();
-	$xoopsTpl->assign( 'btns', $btns );
+  $btnsFaq = xoopsFaq_getBtnForUserInterfaceFaq();
+	$xoopsTpl->assign( 'btnsFaq', $btnsFaq );
     
+  $btnsCat = xoopsFaq_getBtnForUserInterfaceCat();
+	$xoopsTpl->assign( 'btnsCat', $btnsCat );
 
 } else {
 	$xoopsOption['template_main'] = 'xoopsfaq_category.html';
@@ -94,8 +96,12 @@ if ( $cat_id < 1 ) {
 			$xoopsTpl->append( 'questions', $question );
 //       $z[]=$question;
 		}
-    $btns = xoopsFaq_getBtnForUserInterface(true);
-	  $xoopsTpl->assign( 'btns', $btns );
+    $btnsFaq = xoopsFaq_getBtnForUserInterfaceFaq(true);
+	  $xoopsTpl->assign( 'btnsFaq', $btnsFaq );
+    
+    $btnsCat = xoopsFaq_getBtnForUserInterfaceCat();
+	  $xoopsTpl->assign( 'btnsCat', $btnsCat );
+
 	}
 
    

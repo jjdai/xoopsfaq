@@ -1,3 +1,10 @@
+=> Version 2.10 du 09/03/2016 (JJDai-Jean-Jacques DELALANDRE)
+-----------------------------------------------------
+- Déplacement du bouton "ajouter une question" au niveau de la categorie
+- Ajout du bouton "envoyer un courriel" au niveau de la catégorie
+- Ajout du bouton "imprimer" au niveau de la catégorie
+- Adaptation du template d'impression pour imprimer une catégorie entière
+
 => Version 2.9 du 08/03/2016 (JJDai-Jean-Jacques DELALANDRE)
 -----------------------------------------------------
 - Ajout du tri sur les titres des categories dans l'admin

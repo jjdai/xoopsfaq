@@ -1,6 +1,7 @@
 <div style="text-align:right;">    
   <{foreach item=btn from=$btns}>   
-    <a <{if $btn.action=='onclick'}> href="" onclick="javascript:openWithSelfMain('<{$btn.url}><{$question.id}>','',800,600);return false;" 
+    <a <{if $btn.action=='onclickFaq'}> href="" onclick="javascript:openWithSelfMain('<{$btn.url}><{$question.id}>','',800,600);return false;" 
+       <{elseif $btn.action=='onclickCat'}> href="" onclick="javascript:openWithSelfMain('<{$btn.url}><{$category.id}>','',800,600);return false;" 
        <{elseif $btn.action=='top_page'}> href="<{$btn.url}>" 
        <{elseif $btn.action=='mailto'}><{include file="db:xoopsfaq_tellafriend.html"}>      
        <{else}> href="<{$btn.url}><{$question.id}>"     

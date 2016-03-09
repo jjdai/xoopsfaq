@@ -19,13 +19,15 @@
 <table class='entete'>
   <!-- avertissement masquer pour l'imression -->
   <tr id='avertissement' class='masquer avertissement'>
-    <td  colspan='3'>
+    <td  colspan='2' width="800px">
     <div align='center' class='avertissement masquer'>
     
     <span style="color: rgb(204, 0, 0);"><{$smarty.const._MD_FAQ_PRINT_ALERT1}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT2}>"</span> <{$smarty.const._MD_FAQ_PRINT_ALERT3}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT4}>"</span>.</span><br />
     
     </div>
 
+    </td>
+    <td width="100px">
     <div >
   
       <img style="float:right;" src="<{$path_icons32}>/blank.gif" width="10px">
@@ -43,9 +45,19 @@
 </table> 
   <hr  class='masquer avertissement'>
   
-<!-- ******************* contenu de la page ******************* -->
-
 <table class='entete faq_table'>
+<!-- ******************* category ******************* -->
+  <tr>
+    <td class='cat_td_caption'><{$smarty.const._MD_FAQ_CATEGORY}> : </td>
+    <td class='cat_Title faq_td_data'>[#<{$category.category_id}>] </b><{$category.category_title}></td>
+    
+  </tr>
+<!-- ******************* contenu de la page ******************* -->
+  <{foreach item=contents from=$questions}>   
+  <tr>
+    <td colspan="2" height="5px" ><hr></td>
+  </tr>
+
   <tr>
     <td class='faq_td_caption'><{$smarty.const._MD_FAQ_QUESTION}> : </td>
     <td class='faq_Title faq_td_data'>[#<{$contents.contents_id}>] </b><{$contents.contents_title}></td>
@@ -84,14 +96,16 @@
     <td class='faq_td_title'><{$contents.date_publication}></td>
     
   </tr>
+  <{/foreach}>
+  </table>
   
   <!-- Création du pied de page à répéter -->
   <tfoot>
   <tr>
-  <th class='faq_Foot' colspan="2">
+  <th colspan="2">  <hr> <div class="faq_foot" >
       <{$smarty.const._MD_FAQ_COPYRYGHT1}> - <{$sitename}><br />
       <{$smarty.const._MD_FAQ_COPYRYGHT2}><br />
-      <a href='<{$smarty.const.XOOPS_URL}>'><{$smarty.const.XOOPS_URL}></a>
+      <a href='<{$smarty.const.XOOPS_URL}>'><{$smarty.const.XOOPS_URL}></a>     </div>
   </th>
   </tr>                                          
   </tfoot>
@@ -103,13 +117,15 @@
   <hr  class='masquer avertissement'>
 <table class='entete'>
   <tr id='avertissement' class='masquer avertissement'>
-    <td  colspan='3'>
+    <td  colspan='2' width="800px">
     <div align='center' class='avertissement masquer'>
     
     <span style="color: rgb(204, 0, 0);"><{$smarty.const._MD_FAQ_PRINT_ALERT1}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT2}>"</span> <{$smarty.const._MD_FAQ_PRINT_ALERT3}> <span style="color: rgb(51, 51, 255);">"<{$smarty.const._MD_FAQ_PRINT_ALERT4}>"</span>.</span><br />
     
     </div>
 
+    </td>
+    <td width="100px">
     <div >
   
       <img style="float:right;" src="<{$path_icons32}>/blank.gif" width="10px">

@@ -27,7 +27,8 @@ require_once XOOPS_ROOT_PATH . "/class/template.php";
 //-------------------------------------------------------
 global $xoopsConfig;
 //$modulePath =  XOOPS_ROOT_PATH . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'dirname' );
-$modulePath =  _FAQ_PATH;
+$modulePath =  dirname(dirname(__FILE__));
+//echo "===>" . $modulePath."<hr>";
 require_once $modulePath.'/xoops_version.php';
 require_once $modulePath.'/include/functions.php';
 require_once $modulePath.'/include/constantes.php';
@@ -41,39 +42,87 @@ require_once $modulePath.'/language/' . $GLOBALS['xoopsConfig']['language'] . '/
 'http://localhost:8102/laboele/include/cp_header.php' 
                        laboele\include 
  */
+ function complete_question($obj){
+    $contents = $obj->toArray();
+    $contents['date_publication'] = $obj->getPublished();
+    
+    $contents['seealso'] = array();
+        for ($k=1;$k<4;$k++)    
+        {
+          $url = $obj->getSeealso($k,1);
+          if ($url != '')
+          {
+            $t = array();
+            $t['url'] = $url;
+            $t['lib'] = $obj->getLibseealso($k);
+    			 $contents['seealso'][] = $t;
   
+          }
+        }
+    $contents['seealso_count'] = count($contents['seealso']);
+    return $contents;
+ }
+ 
+ //-------------------------------------------------------------------- 
   $xoopsTpl = new XoopsTpl();
   $xoopsTpl->assign('url_base', _FAQ_URL); 
   //$xoopsTpl->assign('print_alert', _MD_MED_PRINT_ALERT); 
   
-$contents_handler = &xoops_getModuleHandler( 'contents',_FAQ_DIRNAME );
-//echo "ici";exit; 
-	$contents_id = $_REQUEST['contents_id'];
-	$obj = $contents_handler->get( $contents_id ) ;
-  $contents = $obj->toArray();
-  $contents['date_publication'] = $obj->getPublished();
+  $category_handler = &xoops_getModuleHandler( 'category',_FAQ_DIRNAME );
+  $contents_handler = &xoops_getModuleHandler( 'contents',_FAQ_DIRNAME );
   
-  $contents['seealso'] = array();
-      for ($k=1;$k<4;$k++)    
-      {
-        $url = $obj->getSeealso($k,1);
-        if ($url != '')
-        {
-          $t = array();
-          $t['url'] = $url;
-          $t['lib'] = $obj->getLibseealso($k);
-  			 $contents['seealso'][] = $t;
+  //-----------------------------------------------------------------
+  if (isset($_REQUEST['category_id'])){
+    $cat_id = $_REQUEST['category_id'];
+  	$catObj = $category_handler->get( $cat_id );
+    $category = $catObj->toArray();
+  	/**
+  	 * Display answers to a specific category
+  	 */
+  	//$xoopsTpl->assign( 'category_name', $category->getVar( 'category_title' ) );
+    
+  //   $z=array();
+    $questions = array();
+  	$contentsObj = $contents_handler->getPublished( $cat_id );
+  	if ( $contentsObj['count'] ) {
+  		foreach( $contentsObj['list'] as $obj ) {
+        $contents = complete_question($obj);
+        $questions[]=$contents;
+  		}
+    }
+  /////////////////////////////////////////////////////////////////////
+  //-----------------------------------------------------------------
+  }else{
+  	$contents_id = $_REQUEST['contents_id'];
+    
+    
+  //echo "ici";exit; 
+  	$obj = $contents_handler->get( $contents_id ) ;
+    $contents = complete_question($obj);
+    $questions = array();
+    $questions[] = $contents;
+    //echoA($contents);
+    //echoA($xoopsConfig);
+    $cat_id = $contents['contents_cid'];
+  	$catObj = $category_handler->get( $cat_id );
+    $category = $catObj->toArray();
+  }
+/////////////////////////////////////////////////////////////////////
 
-        }
-      }
-  $contents['seealso_count'] = count($contents['seealso']);
 
-  //echoA($contents);
-  $xoopsTpl->assign('contents', $contents); 
-  $xoopsTpl->assign('title0', $contents['contents_title']); 
-  $xoopsTpl->assign('sitename', $xoopsConfig['sitename']); 
-  $xoopsTpl->assign('path_icons32', '../../../Frameworks/moduleclasses/icons/32'); 
-  //echoA($xoopsConfig);
+    $xoopsTpl->assign('category', $category); 
+    $xoopsTpl->assign('questions', $questions); 
+    $xoopsTpl->assign('title0', $contents['contents_title']); 
+    $xoopsTpl->assign('sitename', $xoopsConfig['sitename']); 
+    $xoopsTpl->assign('path_icons32', '../../../Frameworks/moduleclasses/icons/32'); 
+
+//echo "ici";exit; 
+
+
+
+
+
+  
                                                             
 //   $xoopsTpl->assign('pied_de_page', "Copyright Jean-Jacques DELALANDRE - Tout droit de reproduction réservé");
 //   $xoopsTpl->assign('site', "http://origami.jubile.fr");

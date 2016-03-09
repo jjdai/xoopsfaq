@@ -15,12 +15,12 @@
 
   //echoArray($xoopsModule);
 //       $index_admin->addInfoBox('Changelog', '200px');
-//
-//
+//       
+//       
 //       $changelog = file_get_contents(_FAQ_PATH . "/docs/changelog.txt");
 //       $changelog = str_replace(array("\r\n","\n"),'<br />',$changelog);
-//       $index_admin->addInfoBoxLine('Changelog', $changelog, '', '', 'information');
-      
+//       $index_admin->addInfoBoxLine('Changelog', $changelog, '', '', 'information');    
+//       
       
   
       echo $index_admin->addNavigation('index.php');
