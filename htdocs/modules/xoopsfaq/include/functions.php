@@ -227,7 +227,7 @@ function xoopsFaq_transformDate2Local($mydate){
  
  $btn = array();   
  $faqPerms = xoopsfaq_getAPermissions(_FAQ_PERM_FAQ);
- $catPerms = xoopsfaq_getAPermissions(_FAQ_PERM_CAT, false);
+ $catPerms = xoopsfaq_getAPermissions(_FAQ_PERM_CAT);
  $url_module = _FAQ_URL;       
       
  //echoA($perms,'interface-' . _FAQ_PERM_FAQ);
