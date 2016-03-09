@@ -2,6 +2,8 @@
 Compilator.SaveAll=0
 Compilator.Capture=0
 Compilator.HideOutput=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
 Compilator.LogType=0
 DefaultDir=F:\_mini_server_n6\udrive\www\xmodules\modules\xoopsfaq
 DefaultCPIndex=0
@@ -64,7 +66,7 @@ _xoopsfaq
 			include\constantes.php
 			include\install.php
 			admin\about.php
-		+language
+		-language
 			+english
 				language\english\admin.php
 				language\english\index.html
@@ -112,27 +114,31 @@ _xoopsfaq
 4=templates\xoopsfaq_category.html
 5=index.php
 6=templates\xoopsfaq_index.html
+7=print-faq\xoopsfaq_print.php
 [Selected Project Files]
 Main=
-Selected=include\functions.php
+Selected=index.php
 [include\constantes.php]
 TopLine=6
 Caret=21,26
 [include\functions.php]
-TopLine=220
-Caret=52,230
+TopLine=226
+Caret=65,253
 [templates\xoopsfaq_tellafriend.html]
 TopLine=1
-Caret=77,1
+Caret=88,1
 [templates\xoopsfaq_btn_contents.html]
 TopLine=1
-Caret=105,4
+Caret=126,4
 [templates\xoopsfaq_category.html]
 TopLine=1
-Caret=1,6
+Caret=47,5
 [index.php]
-TopLine=46
-Caret=31,75
+TopLine=27
+Caret=1,42
 [templates\xoopsfaq_index.html]
 TopLine=1
-Caret=1,14
+Caret=84,18
+[print-faq\xoopsfaq_print.php]
+TopLine=53
+Caret=57,72

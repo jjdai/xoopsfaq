@@ -250,7 +250,7 @@ function xoopsFaq_transformDate2Local($mydate){
               //'url'=>$url_module ."/index.php?cat_id=1#q",
               //le Z dans #cidZCategorie est volontaire pour le différencier 
               //de idCategorie dans le template de transformation pour tellafriend
-              'url'=>$url_module ."/index.php?cat_id=idZCategorie#cidZCategorie",
+              'url'=>$url_module ."/index.php?cat_id=category_id#ccategory_id",
               //'url'=>'https://"ssss' ."/index.php?cat_id=idCategorie#qidContents",
               //'url'=> str_replace("://", 'xxx', $url_module)."/index.php?cat_id=idCategorie#qidContents",
               'action'=>'mailto');       

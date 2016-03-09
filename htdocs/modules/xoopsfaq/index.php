@@ -37,11 +37,9 @@ if ( $cat_id < 1 ) {
 	$objects = $category_handler->getCategories();     
 	if ( $objects['count'] > 0 ) {
 
-		foreach( $objects['list'] as $object ) {
-			$category = array();
-			$category['id'] = $object->getVar( 'category_id' );     
-			$category['name'] = $object->getVar( 'category_title' );
-			$contentsObj = $content_handler->getPublished( $object->getVar( 'category_id' ) );
+		foreach( $objects['list'] as  $catObj) {
+      $category = $catObj->toArray();
+			$contentsObj = $content_handler->getPublished( $category['category_id']  );
 			if ( $contentsObj['count'] ) {
 				foreach( $contentsObj['list'] as $content ) {
 					$category['questions'][] = array( 'id' => $content->getVar( 'contents_id' ),
@@ -67,8 +65,12 @@ if ( $cat_id < 1 ) {
 	/**
 	 * Display answers to a specific category
 	 */
-	$category = $category_handler->get( $cat_id );
-	$xoopsTpl->assign( 'category_name', $category->getVar( 'category_title' ) );
+	$catObj = $category_handler->get( $cat_id );
+  $category = $catObj->toArray();
+  //$category['id'] = $category['category_id'];
+  
+	$xoopsTpl->assign( 'category', $category);
+	//$xoopsTpl->assign( 'category_name', $category->getVar( 'category_title' ) );
   
 //   $z=array();
 	$contentsObj = $content_handler->getPublished( $cat_id );

@@ -8,14 +8,14 @@
     <td class="even">
       <!-- start category loop -->
       <{foreach item=category from=$categories}>&nbsp;&nbsp;<img class="page_image" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/folder.png" width="22" height="22" border="0" alt="<{$category.name}>" title="<{$category.name}>"/>
-      &nbsp;<strong><a href="index.php?cat_id=<{$category.id}>#c<{$category.id}>"><{$category.name}></a></strong>
+      &nbsp;<strong><a href="index.php?cat_id=<{$category.category_id}>#c<{$category.category_id}>"><{$category.category_title}></a></strong>
       <{assign var='btns' value=$btnsCat}>
       <{include file="db:xoopsfaq_btn_contents.html"}>
                                                                               
         <ul>
         <!-- start question loop -->
         <{foreach item=question from=$category.questions}>
-          <li class="limagei">&nbsp;<a href="index.php?cat_id=<{$category.id}>#q<{$question.link}>"><{$question.title}></a><{if $question.answer != ""}> : <{$question.answer}><{/if}></li>
+          <li class="limagei">&nbsp;<a href="index.php?cat_id=<{$category.category_id}>#q<{$question.link}>"><{$question.title}></a><{if $question.answer != ""}> : <{$question.answer}><{/if}></li>
       <{assign var='btns' value=$btnsFaq}>
       <{include file="db:xoopsfaq_btn_contents.html"}>
 
