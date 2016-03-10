@@ -66,7 +66,7 @@ _xoopsfaq
 			include\constantes.php
 			include\install.php
 			admin\about.php
-		-language
+		+language
 			+english
 				language\english\admin.php
 				language\english\index.html
@@ -115,15 +115,21 @@ _xoopsfaq
 5=index.php
 6=templates\xoopsfaq_index.html
 7=print-faq\xoopsfaq_print.php
+8=admin\index.php
+9=admin\info_module.php
+10=..\..\Frameworks\moduleclasses\moduleadmin\moduleadmin.php
+11=language\french\admin.php
+12=language\english\admin.php
+13=language\schinese_utf8\admin.php
 [Selected Project Files]
 Main=
-Selected=index.php
+Selected=admin\info_module.php
 [include\constantes.php]
 TopLine=6
-Caret=21,26
+Caret=25,34
 [include\functions.php]
-TopLine=226
-Caret=65,253
+TopLine=488
+Caret=32,513
 [templates\xoopsfaq_tellafriend.html]
 TopLine=1
 Caret=88,1
@@ -135,10 +141,28 @@ TopLine=1
 Caret=47,5
 [index.php]
 TopLine=27
-Caret=1,42
+Caret=67,45
 [templates\xoopsfaq_index.html]
 TopLine=1
-Caret=84,18
+Caret=1,13
 [print-faq\xoopsfaq_print.php]
 TopLine=53
 Caret=57,72
+[admin\index.php]
+TopLine=13
+Caret=30,42
+[admin\info_module.php]
+TopLine=1
+Caret=35,20
+[..\..\Frameworks\moduleclasses\moduleadmin\moduleadmin.php]
+TopLine=216
+Caret=58,242
+[language\french\admin.php]
+TopLine=69
+Caret=1,95
+[language\english\admin.php]
+TopLine=59
+Caret=1,95
+[language\schinese_utf8\admin.php]
+TopLine=77
+Caret=1,95

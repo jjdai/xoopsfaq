@@ -90,5 +90,7 @@ define('_AM_FAQ_WEB_SITE', "WEB Site");
 define('_AM_FAQ_MIN_VERSION', "Version minimum de");
 define('_AM_FAQ_UPDATE_BY_SET', "Mise à jour par lot");
 define('_AM_FAQ_DELETE_BY_SET', "Suppression par lot");
+define('_AM_TELLAFRIEND_OK', "The module \"Tellafriend\" is installed. The option \"Follow to a friend\" is activ");
+define('_AM_TELLAFRIEND_NOT_OK', "The module \"Tellafriend\" is not installed. The option \"Follow to a friend\" is not activ");
 
 ?>
