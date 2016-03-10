@@ -1,5 +1,6 @@
-=> Version 2.10 du 09/03/2016 (JJDai-Jean-Jacques DELALANDRE)
+=> Version 3.01 du 09/03/2016 (JJDai-Jean-Jacques DELALANDRE)
 -----------------------------------------------------
+- Ajout du message d'alerte d'installation du module tellafriendqui permet de "faire suivre à un ami"
 - Déplacement du bouton "ajouter une question" au niveau de la categorie
 - Ajout du bouton "envoyer un courriel" au niveau de la catégorie
 - Ajout du bouton "imprimer" au niveau de la catégorie
