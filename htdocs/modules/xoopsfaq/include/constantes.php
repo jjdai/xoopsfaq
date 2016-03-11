@@ -21,14 +21,18 @@
  */
 
 //echo __FILE__ . "</br>"; 
-
+global $xoopsModuleConfig;
+    
 $faq_dirname='xoopsfaq'; 
 define('_FAQ_DIRNAME', $faq_dirname);
 define('_FAQ_PATH', XOOPS_ROOT_PATH  . "/modules/" . _FAQ_DIRNAME);
 define('_FAQ_URL',  XOOPS_URL . "/modules/" . _FAQ_DIRNAME);
 define('_FAQ_URL_ADMIN_CAT',  _FAQ_URL ."/admin/category.php");  
 define('_FAQ_URL_ADMIN_FAQ',  _FAQ_URL ."/admin/contents.php");
-                                 
+ 
+define('_FAQ_ADMIN_PERM', $xoopsModuleConfig['admin_has_all_perms']); 
+//echo "<hr>admin permissions _FAQ_ADMIN_PERM : ".(_FAQ_ADMIN_PERM?'oui':'non')."<hr>";
+                                
 //define('XOOPS_MA_URL', XOOPS_URL . '/Frameworks/moduleclasses');
 
 define('_FAQ_FW_ICONS_16', XOOPS_URL . '/Frameworks/moduleclasses/icons/16/');

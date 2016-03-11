@@ -23,22 +23,22 @@ include_once 'admin_header.php';
 
 $category_handler = &xoops_getModuleHandler( 'category' );
 
-$op = xoopsFaq_CleanVars( $_REQUEST, 'op', 'default', 'string' );
+$op = nsXfaq\CleanVars( $_REQUEST, 'op', 'default', 'string' );
 switch ( $op ) {
 	case 'add':
-    $add = xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_ADD, true); 
+    $add = nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_ADD, _FAQ_ADMIN_PERM); 
   case 'edit':
     if (!isset($add)) $add = false;
-    $edit = xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, true); 
+    $edit = nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM); 
     if (!($add || $edit)) 
        redirect_header(_FAQ_URL_ADMIN_CAT ,3,_NOPERM);
     
     
 		xoops_cp_header();
 
-//		xoopsFaq_AdminMenu( 1 );
-		xoopsFaq_DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_CATEGORY_EDIT_DSC, false );
-		$category_id = xoopsFaq_CleanVars( $_REQUEST, 'category_id', 0, 'int' );
+//		nsXfaq\AdminMenu( 1 );
+		nsXfaq\DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_CATEGORY_EDIT_DSC, false );
+		$category_id = nsXfaq\CleanVars( $_REQUEST, 'category_id', 0, 'int' );
 		$obj = ( $category_id == 0 ) ? $category_handler->create() : $category_handler->get( $category_id );
 		if ( is_object( $obj ) ) {
 			$obj->displayForm();
@@ -48,11 +48,11 @@ switch ( $op ) {
 		break;
 
 	case 'delete':
-    if (!xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_DELETE, true)) 
+    if (!nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_DELETE, _FAQ_ADMIN_PERM)) 
        redirect_header(_FAQ_URL_ADMIN_CAT ,3,_NOPERM);
     
-		$ok = xoopsFaq_CleanVars( $_REQUEST, 'ok', 0, 'int' );
-		$category_id = xoopsFaq_CleanVars( $_REQUEST, 'category_id', 0, 'int' );
+		$ok = nsXfaq\CleanVars( $_REQUEST, 'ok', 0, 'int' );
+		$category_id = nsXfaq\CleanVars( $_REQUEST, 'category_id', 0, 'int' );
 		if ( $ok == 1 ) {
 			$obj = $category_handler->get( $category_id );
 			if ( is_object( $obj ) ) {
@@ -67,8 +67,8 @@ switch ( $op ) {
 			$category_handler->displayError( _AM_FAQ_ERRORCOULDNOTDELCAT );
 		} else {
 			xoops_cp_header();
-//			xoopsFaq_AdminMenu( 1 );
-			xoopsFaq_DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_CATEGORY_DELETE_DSC, false );
+//			nsXfaq\AdminMenu( 1 );
+			nsXfaq\DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_CATEGORY_DELETE_DSC, false );
 			xoops_confirm( array( 'op' => 'delete', 'category_id' => $category_id, 'ok' => 1 ), 'category.php', _AM_FAQ_RUSURECAT );
 		}
 		break;
@@ -77,12 +77,12 @@ switch ( $op ) {
 		if ( !$GLOBALS['xoopsSecurity']->check() ) {
 			redirect_header( $this->url, 0, $GLOBALS['xoopsSecurity']->getErrors( true ) );
 		}
-		$category_id = xoopsFaq_CleanVars( $_REQUEST, 'category_id', 0, 'int' );
+		$category_id = nsXfaq\CleanVars( $_REQUEST, 'category_id', 0, 'int' );
 		$obj = ( $category_id == 0 ) ? $category_handler->create() : $category_handler->get( $category_id );
 		if ( is_object( $obj ) ) {
-			$obj->setVar( 'category_title', xoopsFaq_CleanVars( $_REQUEST, 'category_title', '', 'string' ) );
-			$obj->setVar( 'category_order', xoopsFaq_CleanVars( $_REQUEST, 'category_order', 0, 'int' ) );           
-			$obj->setVar( 'category_active', xoopsFaq_CleanVars( $_REQUEST, 'category_active', 0, 'int' ) );           
+			$obj->setVar( 'category_title', nsXfaq\CleanVars( $_REQUEST, 'category_title', '', 'string' ) );
+			$obj->setVar( 'category_order', nsXfaq\CleanVars( $_REQUEST, 'category_order', 0, 'int' ) );           
+			$obj->setVar( 'category_active', nsXfaq\CleanVars( $_REQUEST, 'category_active', 0, 'int' ) );           
 			if ( $category_handler->insert( $obj, true ) ) {
 				redirect_header( 'category.php', 1, _AM_FAQ_DBSUCCESS );
 			}
@@ -92,14 +92,14 @@ switch ( $op ) {
 
     
 	case 'active':
-    if (!xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, true)) 
+    if (!nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM)) 
        redirect_header(_FAQ_URL_ADMIN_CAT ,3,_NOPERM);
 
 // 		if ( !$GLOBALS['xoopsSecurity']->check() ) {
 // 			redirect_header( 'contents.php', 0, $GLOBALS['xoopsSecurity']->getErrors( true ) );   
 // 		}
-		$category_id = xoopsFaq_CleanVars( $_REQUEST, 'category_id', 0, 'int' );
-		$category_active = xoopsFaq_CleanVars( $_REQUEST, 'category_active', 1, 'int' );
+		$category_id = nsXfaq\CleanVars( $_REQUEST, 'category_id', 0, 'int' );
+		$category_active = nsXfaq\CleanVars( $_REQUEST, 'category_active', 1, 'int' );
 		$obj = ( $category_id == 0 ) ? $category_handler->create() : $category_handler->get( $category_id );
 		if ( is_object( $obj ) ) {
 			$obj->setVars( $_REQUEST );
@@ -116,13 +116,13 @@ switch ( $op ) {
 		break;
     
     case 'save_list':
-      if (!xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, true)) 
+      if (!nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM)) 
          redirect_header(_FAQ_URL_ADMIN_CAT ,3,_NOPERM);
 // 		if ( !$GLOBALS['xoopsSecurity']->check() ) {
 // 			redirect_header( 'category.php', 0, $GLOBALS['xoopsSecurity']->getErrors( true ) );   
 // 		}
 
-     if (xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, true)) {
+     if (nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM)) {
         foreach($_REQUEST['categories']  as $category_id=>$item)
         {
           echo $category_id."=". $item['category_order']. " |";
@@ -135,10 +135,10 @@ switch ( $op ) {
 	case 'default':
 	default:
 		xoops_cp_header();
-//		xoopsFaq_AdminMenu( 1 );
+//		nsXfaq\AdminMenu( 1 );
     $index_admin = new ModuleAdmin();
     //echo $index_admin->addNavigation(_FAQ_DIRNAME);
-    if (xoopsfaq_getPermission(_FAQ_PERM_CAT, _FAQ_PERM_ADD, true)) {
+    if (nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_ADD, _FAQ_ADMIN_PERM)) {
       $url = _FAQ_URL .'/admin/'. basename( $_SERVER['SCRIPT_FILENAME'] ) . '?op=edit&value=' . _AM_FAQ_CREATENEW ;
       $index_admin->addItemButton(_ADD, $url, 'add',"");
       echo  $index_admin->renderButton('right', '');
@@ -146,10 +146,10 @@ switch ( $op ) {
 
 
 
-		xoopsFaq_DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_CATEGORY_LIST_DSC, false );
+		nsXfaq\DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_CATEGORY_LIST_DSC, false );
 		$category_handler->displayAdminListing();
 		break;
 }
-xoopsFaq_cp_footer();
+nsXfaq\cp_footer();
 
 ?>

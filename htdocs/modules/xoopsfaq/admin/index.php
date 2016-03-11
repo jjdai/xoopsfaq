@@ -56,6 +56,6 @@ if ($menu ==''){
 
 
 
-xoopsFaq_cp_footer();
+nsXfaq\cp_footer();
 
 ?>

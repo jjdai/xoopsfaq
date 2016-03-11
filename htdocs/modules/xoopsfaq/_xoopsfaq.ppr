@@ -2,6 +2,8 @@
 Compilator.SaveAll=0
 Compilator.Capture=0
 Compilator.HideOutput=0
+Compilator.ProgSaveAll=0
+Compilator.ProgRunSelection=0
 Compilator.LogType=0
 DefaultDir=F:\_mini_server_n6\udrive\www\xmodules\modules\xoopsfaq
 DefaultCPIndex=0
@@ -13,13 +15,13 @@ ProjectFilesOnly=0
 Extensions=*.*
 [Project tree]
 _xoopsfaq
-	+_ressources
+	-_ressources
 		..\..\kernel\object.php
 		..\..\include\cp_header.php
 		..\..\class\xoopsform\grouppermform.php
 		..\..\class\xoopsformloader.php
 	+xoopsfaq
-		+print-faq
+		-print-faq
 			print-faq\xoopsfaq_print.php
 			print-faq\xoopsfaq_print.css
 			print-faq\xoopsfaq_print.js
@@ -35,7 +37,7 @@ _xoopsfaq
 			admin\info_module.php
 			admin\about.php
 			admin\admin_footer.php
-		+class
+		-class
 			class\category.php
 			class\contents.php
 			class\index.html
@@ -57,7 +59,7 @@ _xoopsfaq
 			images\question2.gif
 			images\right_both.gif
 			images\slogo.png
-		-include
+		+include
 			include\functions.php
 			include\index.html
 			include\search.inc.php
@@ -107,60 +109,36 @@ _xoopsfaq
 [Open project files]
 0=include\constantes.php
 1=include\functions.php
-2=templates\xoopsfaq_tellafriend.html
-3=templates\xoopsfaq_btn_contents.html
-4=templates\xoopsfaq_category.html
-5=index.php
-6=templates\xoopsfaq_index.html
-7=print-faq\xoopsfaq_print.php
-8=admin\index.php
-9=admin\info_module.php
-10=language\french\admin.php
-11=language\english\admin.php
-12=language\schinese_utf8\admin.php
-13=docs\changelog.txt
+2=admin\category.php
+3=class\contents.php
+4=admin\permissions.php
+5=admin\contents.php
+6=docs\changelog.txt
+7=xoops_version.php
 [Selected Project Files]
 Main=
 Selected=docs\changelog.txt
 [include\constantes.php]
-TopLine=6
-Caret=25,34
+TopLine=16
+Caret=3,34
 [include\functions.php]
-TopLine=486
-Caret=32,513
-[templates\xoopsfaq_tellafriend.html]
-TopLine=1
-Caret=88,1
-[templates\xoopsfaq_btn_contents.html]
-TopLine=1
-Caret=126,4
-[templates\xoopsfaq_category.html]
-TopLine=1
-Caret=47,5
-[index.php]
-TopLine=27
-Caret=67,45
-[templates\xoopsfaq_index.html]
-TopLine=1
-Caret=1,13
-[print-faq\xoopsfaq_print.php]
-TopLine=53
-Caret=57,72
-[admin\index.php]
-TopLine=11
-Caret=30,42
-[admin\info_module.php]
-TopLine=1
-Caret=35,20
-[language\french\admin.php]
-TopLine=47
-Caret=1,95
-[language\english\admin.php]
-TopLine=47
-Caret=1,95
-[language\schinese_utf8\admin.php]
-TopLine=47
-Caret=1,95
+TopLine=427
+Caret=15,433
+[admin\category.php]
+TopLine=132
+Caret=75,141
+[class\contents.php]
+TopLine=66
+Caret=1,73
+[admin\permissions.php]
+TopLine=29
+Caret=56,35
+[admin\contents.php]
+TopLine=24
+Caret=81,30
 [docs\changelog.txt]
 TopLine=1
-Caret=80,3
+Caret=22,1
+[xoops_version.php]
+TopLine=25
+Caret=31,46

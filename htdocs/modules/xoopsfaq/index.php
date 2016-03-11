@@ -25,7 +25,7 @@ include_once 'include/constantes.php';
 $category_handler = &xoops_getModuleHandler( 'category' );
 $content_handler = &xoops_getModuleHandler( 'contents' );
 
-$cat_id = xoopsFaq_CleanVars( $_GET, 'cat_id', 0, 'int' );
+$cat_id = nsXfaq\CleanVars( $_GET, 'cat_id', 0, 'int' );
 if ( $cat_id < 1 ) {
 	$xoopsOption['template_main'] = 'xoopsfaq_index.html';
 	include_once XOOPS_ROOT_PATH . '/header.php';
@@ -53,10 +53,10 @@ if ( $cat_id < 1 ) {
 			unset( $category );
 		}
 	}
-  $btnsFaq = xoopsFaq_getBtnForUserInterfaceFaq();
+  $btnsFaq = nsXfaq\getBtnForUserInterfaceFaq();
 	$xoopsTpl->assign( 'btnsFaq', $btnsFaq );
     
-  $btnsCat = xoopsFaq_getBtnForUserInterfaceCat();
+  $btnsCat = nsXfaq\getBtnForUserInterfaceCat();
 	$xoopsTpl->assign( 'btnsCat', $btnsCat );
 
 } else {
@@ -98,10 +98,10 @@ if ( $cat_id < 1 ) {
 			$xoopsTpl->append( 'questions', $question );
 //       $z[]=$question;
 		}
-    $btnsFaq = xoopsFaq_getBtnForUserInterfaceFaq(true);
+    $btnsFaq = nsXfaq\getBtnForUserInterfaceFaq(true);
 	  $xoopsTpl->assign( 'btnsFaq', $btnsFaq );
     
-    $btnsCat = xoopsFaq_getBtnForUserInterfaceCat();
+    $btnsCat = nsXfaq\getBtnForUserInterfaceCat();
 	  $xoopsTpl->assign( 'btnsCat', $btnsCat );
 
 	}

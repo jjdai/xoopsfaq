@@ -1,3 +1,8 @@
+=> Version 3.02 du 11/03/2016 (JJDai-Jean-Jacques DELALANDRE)
+-----------------------------------------------------
+- utilisation d'un namespace nsXfaq pour les fonction du module
+- ajout dans les préférences du paramettrepour forcer les droits de l'admin
+
 => Version 3.01 du 09/03/2016 (JJDai-Jean-Jacques DELALANDRE)
 -----------------------------------------------------
 - Ajout du message d'alerte d'installation du module tellafriendqui permet de "faire suivre à un ami"
@@ -5,6 +10,7 @@
 - Ajout du bouton "envoyer un courriel" au niveau de la catégorie
 - Ajout du bouton "imprimer" au niveau de la catégorie
 - Adaptation du template d'impression pour imprimer une catégorie entière
+
 
 => Version 2.9 du 08/03/2016 (JJDai-Jean-Jacques DELALANDRE)
 -----------------------------------------------------

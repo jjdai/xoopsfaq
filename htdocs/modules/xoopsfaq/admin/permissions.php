@@ -25,19 +25,19 @@ include_once XOOPS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
 include_once _FAQ_PATH . '/class/permissions.php'; 
 xoops_cp_header();
 
-$op = xoopsFaq_CleanVars( $_REQUEST, 'op', 'default', 'string' );
+$op = nsXfaq\CleanVars( $_REQUEST, 'op', 'default', 'string' );
 include_once _FAQ_PATH . "/class/permissions.php" ;
 $permissions_handler = new XoopsfaqPermissions();
 
 //$permissions_handler = &xoops_getModuleHandler( 'contents',_FAQ_DIRNAME );
 $permissions_handler->display($_REQUEST);
 
-xoopsfaq_getPermission('xoopsfaq_faq', 1);
-xoopsfaq_getPermission('xoopsfaq_faq', 2);
-xoopsfaq_getPermission('xoopsfaq_faq', 3);
-xoopsfaq_getPermission('xoopsfaq_faq', 4);
+nsXfaq\getPermission('xoopsfaq_faq', 1, _FAQ_ADMIN_PERM);
+nsXfaq\getPermission('xoopsfaq_faq', 2, _FAQ_ADMIN_PERM);
+nsXfaq\getPermission('xoopsfaq_faq', 3, _FAQ_ADMIN_PERM);
+nsXfaq\getPermission('xoopsfaq_faq', 4, _FAQ_ADMIN_PERM);
 
-xoopsfaq_getAPermissions('xoopsfaq_faq', 'permissions des faq');
+nsXfaq\getAPermissions('xoopsfaq_faq', 'permissions des faq');
 
 xoops_cp_footer();
 

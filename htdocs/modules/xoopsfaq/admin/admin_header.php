@@ -18,13 +18,13 @@ require_once XOOPS_ROOT_PATH . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'd
 require_once XOOPS_ROOT_PATH . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'dirname' ) . '/include/constantes.php';
 global $isFwModuleAdmin;
 
-  if (!xoopsfaq_isAdminModule())
+  if (!nsXfaq\isAdminModule())
   {
 		redirect_header(XOOPS_URL."/",3,_NOPERM);
     exit();
   }
 
-if (xoopsFaq_checkModuleAdmin()){
+if (nsXfaq\checkModuleAdmin()){
   $index_admin = new ModuleAdmin();
   $isFwModuleAdmin = 1;
 }

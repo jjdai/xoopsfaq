@@ -41,9 +41,9 @@ $modversion = array( 'name' => _MI_FAQ_XOOPSFAQ_NAME,
 	'license_url' => 'www.gnu.org/licenses/gpl-2.0.html/',
 	'contributors' => '',
 	'credits' => 'The Xoops Module Development Team',
-	'version' => 3.01,
+	'version' => 3.02,
 	'module_status' => 'RC1',
-	'release_date' => '2016/03/09',
+	'release_date' => '2016/03/11',
 	'official' => 1,
 	'image' => 'images/slogo.png',
 	'website_url' => 'http://www.xoops.org',
@@ -115,7 +115,7 @@ $modversion['comments'][] = array( 'pageName' => 'index.php', 'itemName' => 'cat
 xoops_load('xoopseditorhandler');
 $editor_handler = XoopsEditorHandler::getInstance();
 $modversion['config'][] = array( 
-   'name' => 'use_wysiwyg',
+  'name' => 'use_wysiwyg',
 	'title' => '_MI_FAQ_XOOPSFAQ_EDITORS',
 	'description' => '_MI_FAQ_XOOPSFAQ_EDITORS_DSC',
 	'formtype' => 'select',
@@ -145,5 +145,14 @@ $modversion['config'][] = array(
 //   'options' => $tableau
 // )
 
+// Config items
+$modversion['config'][] = array(
+    'name'        => 'admin_has_all_perms',
+    'title'       => '_MI_FAQ_GROUP_ADMIN_PERM',
+    'description' => '_MI_FAQ_GROUP_ADMIN_PERM_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+    );
 
 ?>

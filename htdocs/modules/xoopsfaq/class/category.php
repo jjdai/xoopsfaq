@@ -298,7 +298,7 @@ class XoopsfaqCategoryHandler extends XoopsPersistableObjectHandler {
 
 				$ret .= "<td class='even' style='text-align:center;'>" . $txtOrder . "</td>";
 				$ret .= "<td class='even' style='text-align:center;'>";
-				$ret .= xoopsFaq_getIcons( $buttons, 'category_id', $object->getVar( 'category_id' ), $extra = null );
+				$ret .= nsXfaq\getIcons( $buttons, 'category_id', $object->getVar( 'category_id' ), $extra = null );
 				$ret .= "</tr>";
 			}
 		} else {
@@ -319,8 +319,8 @@ class XoopsfaqCategoryHandler extends XoopsPersistableObjectHandler {
 	 */
 	function displayError( $errorString = '' ) {
 		xoops_cp_header();
-//		xoopsFaq_AdminMenu( 1 );
-		xoopsFaq_DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_FAQ_SUBERROR );
+//		nsXfaq\AdminMenu( 1 );
+		nsXfaq\DisplayHeading( _AM_FAQ_CATEGORY_HEADER, _AM_FAQ_FAQ_SUBERROR );
 		if ( !is_array( $errorString ) ) {
 			echo $errorString;
 		} else {

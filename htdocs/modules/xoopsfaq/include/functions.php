@@ -19,16 +19,17 @@
  * @author John Neill
  * @version $Id: functions.php 0000 10/04/2009 09:03:22 John Neill $
  */
+namespace nsXfaq;
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 include_once 'constantes.php';
 
 
 /**
- * xoopsFaq_CleanVars()
+ * CleanVars()
  *
  * @return
  */
-function xoopsFaq_CleanVars( &$global, $key, $default = '', $type = 'int' ) {
+function CleanVars( &$global, $key, $default = '', $type = 'int' ) {
 	switch ( $type ) {
 		case 'string':
 			$ret = ( isset( $global[$key] ) ) ? filter_var( $global[$key], FILTER_SANITIZE_MAGIC_QUOTES ) : $default;
@@ -45,12 +46,12 @@ function xoopsFaq_CleanVars( &$global, $key, $default = '', $type = 'int' ) {
 }
 
 /**
- * xoopsFaq_displayHeading()
+ * displayHeading()
  *
  * @param mixed $value
  * @return
  */
-function xoopsFaq_DisplayHeading( $heading = '', $subheading = '', $showbutton = true ) {
+function DisplayHeading( $heading = '', $subheading = '', $showbutton = true ) {
 	$ret = '';
 
 	if ( !empty( $heading ) ) {
@@ -67,22 +68,22 @@ function xoopsFaq_DisplayHeading( $heading = '', $subheading = '', $showbutton =
 }
 
 /**
- * xoopsFaq_cp_footer()
+ * cp_footer()
  *
  * @return
  */
-function xoopsFaq_cp_footer() {
+function cp_footer() {
 	global $xoopsModule;
 
 	echo '<div style="padding-top: 16px; padding-bottom: 10px; text-align: center;">
-		<a href="' . $xoopsModule->getInfo( 'website_url' ) . '" target="_blank">' . xoopsFaq_showImage( 'xoopsmicrobutton', '', '', 'gif' ) . '
+		<a href="' . $xoopsModule->getInfo( 'website_url' ) . '" target="_blank">' . showImage( 'xoopsmicrobutton', '', '', 'gif' ) . '
 		</a>
 	</div>';
 	xoops_cp_footer();
 }
 
 /**
- * xoopsFaq_showImage()
+ * showImage()
  *
  * @param string $name
  * @param string $title
@@ -92,7 +93,7 @@ function xoopsFaq_cp_footer() {
  * @param string $size
  * @return
  */
-function xoopsFaq_showImage( $name = '', $title = '', $align = 'middle', $ext = 'png', $path = '', $size = '' ) {
+function showImage( $name = '', $title = '', $align = 'middle', $ext = 'png', $path = '', $size = '' ) {
 	if ( empty( $path ) ) {
 		$path = _FAQ_IMAGES . "/";
 		//$path = XOOPS_URL . '/modules/' . $GLOBALS['xoopsModule']->getVar( 'dirname' ) . '/images';
@@ -124,7 +125,7 @@ function xoopsFaq_showImage( $name = '', $title = '', $align = 'middle', $ext = 
 }
 
 /**
- * xoopsFaq_getIcons()
+ * getIcons()
  *
  * @param array $_icon_array
  * @param mixed $key
@@ -132,7 +133,7 @@ function xoopsFaq_showImage( $name = '', $title = '', $align = 'middle', $ext = 
  * @param mixed $extra
  * @return
  */
-function xoopsFaq_getIcons( $_icon_array = array(), $key, $value = null, $extra = null ) {
+function getIcons( $_icon_array = array(), $key, $value = null, $extra = null ) {
 	$ret = '';
   //$sep = "z<div style='position:relative;width:120px;'></div>";
   $sep = "&nbsp;&nbsp;&nbsp;";     
@@ -141,7 +142,7 @@ function xoopsFaq_getIcons( $_icon_array = array(), $key, $value = null, $extra 
 			$url = ( !is_numeric( $_op ) ) ? $_op . "?{$key}=" . $value : xoops_getenv( 'PHP_SELF' ) . "?op={$icon}&amp;{$key}=" . $value;
 			if ( $extra != null ) {
 			}
-			$ret .= $sep .  '<a href="' . $url . '">' . xoopsFaq_showImage( $icon, xoopsFaq_getConstants($icon , '_AM_FAQ_'), null, 'png' ) . '</a>';
+			$ret .= $sep .  '<a href="' . $url . '">' . showImage( $icon, getConstants($icon , '_AM_FAQ_'), null, 'png' ) . '</a>';
 			 
 		}
 	}      
@@ -151,14 +152,14 @@ function xoopsFaq_getIcons( $_icon_array = array(), $key, $value = null, $extra 
 }
 
 /**
- * xoopsFaq_getConstants()
+ * getConstants()
  *
  * @param mixed $_title
  * @param string $prefix
  * @param string $suffix
  * @return
  */
-function xoopsFaq_getConstants( $_title, $prefix = '', $suffix = '' ) {
+function getConstants( $_title, $prefix = '', $suffix = '' ) {
 
   	$prefix = ( $prefix != '' || $_title != 'action' ) ? trim( $prefix ) : '';
   	$suffix = trim( $suffix );
@@ -175,7 +176,7 @@ function xoopsFaq_getConstants( $_title, $prefix = '', $suffix = '' ) {
  *
  * @return
  */
-function xoopsFaq_isEditorHTML() {
+function isEditorHTML() {
 	if ( isset( $GLOBALS['xoopsModuleConfig']['use_wysiwyg'] ) && in_array( $GLOBALS['xoopsModuleConfig']['use_wysiwyg'], array( 'tinymce', 'fckeditor', 'koivi', 'inbetween', 'spaw' ) ) ) {
 		return true;
 	}
@@ -186,7 +187,7 @@ function xoopsFaq_isEditorHTML() {
 /***
  *
  **/
-function xoopsFaq_checkModuleAdmin()
+function checkModuleAdmin()
 {
   $f = $GLOBALS['xoops']->path('/Frameworks/moduleclasses/moduleadmin/moduleadmin.php');
   if ( file_exists($f)){
@@ -201,7 +202,7 @@ function xoopsFaq_checkModuleAdmin()
 /****************************************************************
  *  Transformation de la date fr -> en 
  ****************************************************************/
-function xoopsFaq_transformDate2Local($mydate){
+function transformDate2Local($mydate){
 
   if ($GLOBALS['xoopsConfig']['language']=="french") 
 
@@ -222,12 +223,12 @@ function xoopsFaq_transformDate2Local($mydate){
 /*******************************************************************
  *
  ********************************************************************/
- function xoopsFaq_getBtnForUserInterfaceCat($addUpBtn = false)
+ function getBtnForUserInterfaceCat($addUpBtn = false)
  {
  
  $btn = array();   
- $faqPerms = xoopsfaq_getAPermissions(_FAQ_PERM_FAQ);
- $catPerms = xoopsfaq_getAPermissions(_FAQ_PERM_CAT);
+ $faqPerms = getAPermissions(_FAQ_PERM_FAQ,_FAQ_ADMIN_PERM);
+ $catPerms = getAPermissions(_FAQ_PERM_CAT,_FAQ_ADMIN_PERM);
  $url_module = _FAQ_URL;       
       
  //echoA($perms,'interface-' . _FAQ_PERM_FAQ);
@@ -243,7 +244,7 @@ function xoopsFaq_transformDate2Local($mydate){
  }
  //----------------------------------------------------
 //     <a target="_top" href="<{$mail_link|xoops_tellafriend}>">
- if ( $catPerms[_FAQ_PERM_MAILTO] && xoopsfaq_isTellafriend())
+ if ( $catPerms[_FAQ_PERM_MAILTO] && isTellafriend())
  {
    $b = array('icone'=>_FAQ_MAIL, 
               'title'=> _MD_FAQ_MAILTO,  
@@ -279,14 +280,14 @@ function xoopsFaq_transformDate2Local($mydate){
 /*******************************************************************
  *
  ********************************************************************/
- function xoopsFaq_getBtnForUserInterfaceFaq($addUpBtn = false)
+ function getBtnForUserInterfaceFaq($addUpBtn = false)
  {
  
  $btn = array();   
- $faqPerms = xoopsfaq_getAPermissions(_FAQ_PERM_FAQ);
+ $faqPerms = getAPermissions(_FAQ_PERM_FAQ, _FAQ_ADMIN_PERM);
  $url_module = _FAQ_URL;       
       
- //echoA($faqPerms,'interface-' . _FAQ_PERM_FAQ);
+ echoA($faqPerms,'interface-' . _FAQ_PERM_FAQ);
  //----------------------------------------------------
  if ( $faqPerms[_FAQ_PERM_PRINT])
  {
@@ -300,7 +301,7 @@ function xoopsFaq_transformDate2Local($mydate){
  
  //----------------------------------------------------
 //     <a target="_top" href="<{$mail_link|xoops_tellafriend}>">
- if ( $faqPerms[_FAQ_PERM_MAILTO] && xoopsfaq_isTellafriend())
+ if ( $faqPerms[_FAQ_PERM_MAILTO] && isTellafriend())
  {
    $b = array('icone'=>_FAQ_MAIL, 
               'title'=> _MD_FAQ_MAILTO,  
@@ -383,7 +384,7 @@ function xoopsFaq_transformDate2Local($mydate){
  *
  ***********************************************************/
 
-function xoopsfaq_getURL($link)
+function getURL($link)
   {
     if ($link=='') return $link;
     if (substr($link, 0, 7) != 'http://' && substr($link, 0, 8) != 'https://')
@@ -397,38 +398,39 @@ function xoopsfaq_getURL($link)
  *
  ***********************************************************/
 
-function xoopsfaq_getPermissions()
-{   
-global $xoopsUser,$xoopsModule,$xoopsmod,$xoopsModuleConfig;
-$bolOk = 0;
-
-  if ( $xoopsUser ) {
-      $userGroups = array_values($xoopsUser->getGroups());
-      
-      //--- autorisation de supprimer (a completer eventuellement comme pour la suppression)
-      $bolOk = 1; 
-      
-      //--- autorisation de supprimer
-      $moduleGroups = $xoopsModuleConfig['delete_allowed'];
-      $g = array_intersect($userGroups,$moduleGroups);
-      if (count($g)>0)  $bolOk = $bolOk | 2;
-      
-//       echoA($g);
-//       echoA($userGroups,'user');
-//       echoA($moduleGroups,'module');
-      
-      return $bolOk;
-
-  } else {
-  	return $bolOk;
-  }
-}
+// function getPermissions()
+// {   
+// global $xoopsUser,$xoopsModule,$xoopsmod,$xoopsModuleConfig;
+// $bolOk = 0;
+// 
+//   if ( $xoopsUser ) {
+//       $userGroups = array_values($xoopsUser->getGroups());
+//       
+//       //--- autorisation de supprimer (a completer eventuellement comme pour la suppression)
+//       $bolOk = 1; 
+//       
+//       //--- autorisation de supprimer
+//       $moduleGroups = $xoopsModuleConfig['delete_allowed'];
+//       $g = array_intersect($userGroups,$moduleGroups);
+//       if (count($g)>0)  $bolOk = $bolOk | 2;
+//       
+// //       echoA($g);
+// //       echoA($userGroups,'user');
+// //       echoA($moduleGroups,'module');
+//       
+//       return $bolOk;
+// 
+//   } else {
+//   	return $bolOk;
+//   }
+// }
 
 /******************************************************************
  *
  ******************************************************************/ 
-function xoopsfaq_getPermission($permName, $perm_itemid, $trueifadmin = true){
+function getPermission($permName, $perm_itemid, $trueifadmin = true){
 global $xoopsModule, $xoopsUser;  
+//echo "<hr>admin permissions : ".($trueifadmin?'oui':'non')."<hr>";
   /* --------------------------------------------------------- */
   $mid = $xoopsModule->getVar('mid');
   //$userGroups = array_values($xoopsUser->getGroups());
@@ -445,14 +447,15 @@ global $xoopsModule, $xoopsUser;
 /******************************************************************
  *
  ******************************************************************/ 
-function xoopsfaq_getAPermissions($permName, $trueifadmin = true){ 
+function getAPermissions($permName, $trueifadmin = true){ 
 global $xoopsModule, $xoopsUser;  
+echo "<hr>Admin permissions : ".($trueifadmin?'oui':'non')."<hr>";
     
   $mid = $xoopsModule->getVar('mid');
   $userGroups =  $xoopsUser->getGroups();
   $gperm_handler =& xoops_gethandler('groupperm');
  //$userGroups  = array(5);
- //  echoA($userGroups,'grp');
+ echoA($userGroups,'grp');
   
     $t = array();
     for ($h=1; $h<_FAQ_PERM_NB; $h++)
@@ -475,7 +478,7 @@ global $xoopsModule, $xoopsUser;
  *
  ***********************************************************/
 
-function xoopsfaq_isAdminXoops()
+function isAdminXoops()
 {                              
 global $xoopsUser,$xoopsModule,$xoopsmod,$xoopsModuleConfig;
 $bolOk = false;
@@ -494,13 +497,13 @@ $bolOk = false;
  ***********************************************************/
 
 
-function xoopsfaq_isAdminModule()
+function isAdminModule()
 {
 global $xoopsUser,$xoopsModule,$xoopsmod;
 $bolOk = false;
   if ( $xoopsUser ) {
     //echo "<hr>"._FAQ_DIRNAME."<hr>";
-  	$xoopsModule = XoopsModule::getByDirname(_FAQ_DIRNAME);
+  	$xoopsModule = \XoopsModule::getByDirname(_FAQ_DIRNAME);
   	$bolOk =  $xoopsUser->isAdmin($xoopsModule->mid()) ;
   }
   return $bolOk;
@@ -510,7 +513,7 @@ $bolOk = false;
 /************************************************************
  *
  ***********************************************************/
-function xoopsfaq_isTellafriend()
+function isTellafriend()
 {
   if (!is_readable(XOOPS_ROOT_PATH . "/class/smarty/plugins/modifier.xoops_tellafriend.php"))  {
     return false;

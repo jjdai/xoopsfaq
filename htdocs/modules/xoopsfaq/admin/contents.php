@@ -23,23 +23,23 @@ include 'admin_header.php';
 
 $contents_handler = &xoops_getModuleHandler( 'contents' );
 
-$op = xoopsFaq_CleanVars( $_REQUEST, 'op', 'default', 'string' );
+$op = nsXfaq\CleanVars( $_REQUEST, 'op', 'default', 'string' );
 
 switch ( $op ) {
 	case 'add':
-    $add =  (!xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_ADD, true));
+    $add =  (!nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_ADD, _FAQ_ADMIN_PERM));
 	case 'edit':
     if (!isset($add)) $add = false;
-    $edit = xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, true); 
+    $edit = nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM); 
     if (!($add || $edit)) 
        redirect_header(_FAQ_URL_ADMIN_FAQ ,3,_NOPERM);
   
-		$contents_id = xoopsFaq_CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
+		$contents_id = nsXfaq\CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
 		$obj = ( $contents_id == 0 ) ? $contents_handler->create() : $contents_handler->get( $contents_id );
 		if ( is_object( $obj ) ) {
 			xoops_cp_header();
-//			xoopsFaq_AdminMenu( 0 );
-			xoopsFaq_DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CATEGORY_EDIT_DSC, false );
+//			nsXfaq\AdminMenu( 0 );
+			nsXfaq\DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CATEGORY_EDIT_DSC, false );
 			$obj->displayForm();
 		} else {
 			$contents_handler->displayError( _AM_FAQ_ERRORCOULDNOTEDITCAT );
@@ -47,11 +47,11 @@ switch ( $op ) {
 		break;
 
 	case 'delete':
-    if (!xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_DELETE, true)) 
+    if (!nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_DELETE, _FAQ_ADMIN_PERM)) 
        redirect_header(_FAQ_URL_ADMIN_FAQ ,3,_NOPERM);
   
-		$ok = xoopsFaq_CleanVars( $_REQUEST, 'ok', 0, 'int' );
-		$contents_id = xoopsFaq_CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
+		$ok = nsXfaq\CleanVars( $_REQUEST, 'ok', 0, 'int' );
+		$contents_id = nsXfaq\CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
 		if ( $ok == 1 ) {
 			$obj = $contents_handler->get( $contents_id );
 			if ( is_object( $obj ) ) {
@@ -66,8 +66,8 @@ switch ( $op ) {
 			$contents_handler->displayError( _AM_FAQ_ERRORCOULDNOTDELCAT );
 		} else {
 			xoops_cp_header();
-//			xoopsFaq_AdminMenu( 0 );
-			xoopsFaq_DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CATEGORY_DELETE_DSC, false );
+//			nsXfaq\AdminMenu( 0 );
+			nsXfaq\DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CATEGORY_DELETE_DSC, false );
 			xoops_confirm( array( 'op' => 'delete', 'contents_id' => $contents_id, 'ok' => 1 ), 'contents.php', _AM_FAQ_RUSURECAT );
 		}
 		break;
@@ -76,11 +76,11 @@ switch ( $op ) {
 		if ( !$GLOBALS['xoopsSecurity']->check() ) {
 			redirect_header( 'contents.php', 0, $GLOBALS['xoopsSecurity']->getErrors( true ) );
 		}
-		$contents_id = xoopsFaq_CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
+		$contents_id = nsXfaq\CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
 		$obj = ( $contents_id == 0 ) ? $contents_handler->create() : $contents_handler->get( $contents_id );
 		if ( is_object( $obj ) ) {
 			$obj->setVars( $_REQUEST );
-			$obj->setVar( 'contents_publish', strtotime(xoopsFaq_transformDate2Local($_REQUEST['contents_publish'] ) ) );
+			$obj->setVar( 'contents_publish', strtotime(nsXfaq\transformDate2Local($_REQUEST['contents_publish'] ) ) );
 			$obj->setVar( 'dohtml', isset( $_REQUEST['dohtml'] ) ? 1 : 0 );
 			$obj->setVar( 'dosmiley', isset( $_REQUEST['dosmiley'] ) ? 1 : 0 );
 			$obj->setVar( 'doxcode', isset( $_REQUEST['doxcode'] ) ? 1 : 0 );
@@ -96,11 +96,11 @@ switch ( $op ) {
 		break;
     
 	case 'active':
-    if (!xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, true)) 
+    if (!nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM)) 
        redirect_header(_FAQ_URL_ADMIN_FAQ ,3,_NOPERM);
   
-		$contents_id = xoopsFaq_CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
-		$contents_active = xoopsFaq_CleanVars( $_REQUEST, 'contents_active', 1, 'int' );
+		$contents_id = nsXfaq\CleanVars( $_REQUEST, 'contents_id', 0, 'int' );
+		$contents_active = nsXfaq\CleanVars( $_REQUEST, 'contents_active', 1, 'int' );
 		$obj = ( $contents_id == 0 ) ? $contents_handler->create() : $contents_handler->get( $contents_id );
 		if ( is_object( $obj ) ) {
 			$obj->setVars( $_REQUEST );
@@ -119,7 +119,7 @@ switch ( $op ) {
 	case 'save_list':
 //echoA($_REQUEST);exit;
     if (isset($_REQUEST['update'])){
-      if (!xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, true)) 
+      if (!nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM)) 
          redirect_header(_FAQ_URL_ADMIN_FAQ ,3,_NOPERM);
          
         foreach($_REQUEST['answers']  as $contents_id=>$item)
@@ -133,11 +133,11 @@ switch ( $op ) {
         } 
         
     }elseif(isset($_REQUEST['delete'])){
-      if (!xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_DELETE, true)) 
+      if (!nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_DELETE, _FAQ_ADMIN_PERM)) 
          redirect_header(_FAQ_URL_ADMIN_FAQ ,3,_NOPERM);
          
   			xoops_cp_header();
-  			xoopsFaq_DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CATEGORY_DELETE_DSC, false );
+  			nsXfaq\DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CATEGORY_DELETE_DSC, false );
         $t = implode('|',array_keys($_REQUEST['del_answers']));    
   			xoops_confirm( array( 'op' => 'delete_list', 'contents_id' => $t, 'ok' => 1 ), 'contents.php', _AM_FAQ_RUSURECAT );
         // echoA($_REQUEST,'save_list',true);
@@ -155,7 +155,7 @@ switch ( $op ) {
 
 	case 'delete_list':
     //echoA($_REQUEST,"delete_list",true);
-    if (!xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_DELETE, true)) redirect_header("" ,3,_NOPERM);
+    if (!nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_DELETE, _FAQ_ADMIN_PERM)) redirect_header("" ,3,_NOPERM);
         $t = explode('|', $_REQUEST['contents_id']);
         //foreach($_REQUEST['del_answers']  as $contents_id)
         for($h=0; $h<count($t); $h++)  
@@ -179,20 +179,20 @@ switch ( $op ) {
 	case 'default':
 	default:
 		xoops_cp_header();
-//		xoopsFaq_AdminMenu( 0 );
+//		nsXfaq\AdminMenu( 0 );
 
     $index_admin = new ModuleAdmin();
     //echo $index_admin->addNavigation(_FAQ_DIRNAME);
-    if (xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_ADD, true)) {
+    if (nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_ADD, _FAQ_ADMIN_PERM)) {
       $url = _FAQ_URL .'/admin/'. basename( $_SERVER['SCRIPT_FILENAME'] ) . '?op=add&value=' . _AM_FAQ_CREATENEW ;
       $index_admin->addItemButton(_ADD, $url, 'add',"");
       echo  $index_admin->renderButton('right', '');
     }
 
-		xoopsFaq_DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CONTENTS_LIST_DSC, false );
+		nsXfaq\DisplayHeading( _AM_FAQ_CONTENTS_HEADER, _AM_FAQ_CONTENTS_LIST_DSC, false );
 		$contents_handler->displayAdminListing();
 		break;
 }
-xoopsFaq_cp_footer();
+nsXfaq\cp_footer();
 
 ?>

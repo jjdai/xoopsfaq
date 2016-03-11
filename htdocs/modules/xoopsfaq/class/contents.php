@@ -72,7 +72,7 @@ class XoopsfaqContents extends XoopsObject {
 	function displayForm() {
 		global $xoopsModuleConfig;
 
-    if (!xoopsfaq_getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, true)) {
+    if (!nsXfaq\getPermission(_FAQ_PERM_FAQ, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM)) {
 //     redirect_header( 'contents.php', 1, _AM_FAQ_DBSUCCESS );
 //       redirect_header(XOOPS_URL."/",3,_NOPERM);
 //       if ($xoopsUser) {             $_SERVER['HTTP_REFERER']
@@ -185,7 +185,7 @@ class XoopsfaqContents extends XoopsObject {
 			$options_tray->addElement( $contents_contents );
 		}
 
-		if ( false == xoopsFaq_isEditorHTML() ) {
+		if ( false == nsXfaq\isEditorHTML() ) {
 			if ( $this->isNew() ) {
 				$this->setVar( 'dohtml', 0 );
 				$this->setVar( 'dobr', 1 );
@@ -273,7 +273,7 @@ class XoopsfaqContents extends XoopsObject {
 	function getSeealso($index=1, $mode=0 ) {
     if ($mode > 0)
     {
-      $link = xoopsfaq_getURL($this->getVar( 'contents_seealso' . $index ));
+      $link = nsXfaq\getURL($this->getVar( 'contents_seealso' . $index ));
 //       $link = $this->getVar( 'contents_seealso' . $index );
       if ($link=='') return $link;
       //-----------------------------------------------
@@ -563,7 +563,7 @@ include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
           
           
 				$ret .= "<td class='even' style='text-align:center;'>";       
-				$ret .= xoopsFaq_getIcons( $buttons, 'contents_id', $object->getVar( 'contents_id' ), $extra = null );
+				$ret .= nsXfaq\getIcons( $buttons, 'contents_id', $object->getVar( 'contents_id' ), $extra = null );
 /*
 */        
       $nameDel = "del_answers[{$contents_id}]";  //  [delete]
@@ -596,8 +596,8 @@ include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 	 */
 	function displayError( $errorString = '' ) {
 		xoops_cp_header();
-//		xoopsFaq_AdminMenu( 0 );
-		xoopsFaq_DisplayHeading( _AM_FAQ_CONTENTS_HEADER, '', false );
+//		nsXfaq\AdminMenu( 0 );
+		nsXfaq\DisplayHeading( _AM_FAQ_CONTENTS_HEADER, '', false );
 		xoops_error( $errorString, _AM_FAQ_FAQ_SUBERROR );
 		xoops_cp_footer();
 		exit();
