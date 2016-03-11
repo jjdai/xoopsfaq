@@ -449,13 +449,13 @@ global $xoopsModule, $xoopsUser;
  ******************************************************************/ 
 function getAPermissions($permName, $trueifadmin = true){ 
 global $xoopsModule, $xoopsUser;  
-echo "<hr>Admin permissions : ".($trueifadmin?'oui':'non')."<hr>";
+//echo "<hr>Admin permissions : ".($trueifadmin?'oui':'non')."<hr>";
     
   $mid = $xoopsModule->getVar('mid');
   $userGroups =  $xoopsUser->getGroups();
   $gperm_handler =& xoops_gethandler('groupperm');
  //$userGroups  = array(5);
- echoA($userGroups,'grp');
+ //echoA($userGroups,'grp');
   
     $t = array();
     for ($h=1; $h<_FAQ_PERM_NB; $h++)

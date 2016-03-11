@@ -27,6 +27,14 @@ xoops_cp_header();
 
 $op = nsXfaq\CleanVars( $_REQUEST, 'op', 'default', 'string' );
 include_once _FAQ_PATH . "/class/permissions.php" ;
+
+// -- onglet permission                      
+
+if (!nsXfaq\isAdminXoops()){ 
+        redirect_header(XOOPS_URL, 1, _NOPERM);
+        exit();
+}
+
 $permissions_handler = new XoopsfaqPermissions();
 
 //$permissions_handler = &xoops_getModuleHandler( 'contents',_FAQ_DIRNAME );

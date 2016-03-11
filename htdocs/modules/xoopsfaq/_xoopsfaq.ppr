@@ -115,15 +115,16 @@ _xoopsfaq
 5=admin\contents.php
 6=docs\changelog.txt
 7=xoops_version.php
+8=admin\menu.php
 [Selected Project Files]
 Main=
-Selected=docs\changelog.txt
+Selected=admin\permissions.php
 [include\constantes.php]
 TopLine=16
 Caret=3,34
 [include\functions.php]
-TopLine=427
-Caret=15,433
+TopLine=470
+Caret=1,487
 [admin\category.php]
 TopLine=132
 Caret=75,141
@@ -131,8 +132,8 @@ Caret=75,141
 TopLine=66
 Caret=1,73
 [admin\permissions.php]
-TopLine=29
-Caret=56,35
+TopLine=11
+Caret=8,33
 [admin\contents.php]
 TopLine=24
 Caret=81,30
@@ -140,5 +141,8 @@ Caret=81,30
 TopLine=1
 Caret=22,1
 [xoops_version.php]
-TopLine=25
+TopLine=59
 Caret=31,46
+[admin\menu.php]
+TopLine=35
+Caret=1,59
