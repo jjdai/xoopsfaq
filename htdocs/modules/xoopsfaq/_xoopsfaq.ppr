@@ -116,9 +116,14 @@ _xoopsfaq
 6=docs\changelog.txt
 7=xoops_version.php
 8=admin\menu.php
+9=language\english\modinfo.php
+10=language\french\modinfo.php
+11=language\schinese_utf8\modinfo.php
+12=language\english\main.php
+13=language\english\admin.php
 [Selected Project Files]
 Main=
-Selected=include\functions.php
+Selected=language\english\admin.php
 [include\constantes.php]
 TopLine=16
 Caret=3,34
@@ -146,3 +151,18 @@ Caret=31,46
 [admin\menu.php]
 TopLine=35
 Caret=1,59
+[language\english\modinfo.php]
+TopLine=13
+Caret=59,39
+[language\french\modinfo.php]
+TopLine=13
+Caret=65,43
+[language\schinese_utf8\modinfo.php]
+TopLine=5
+Caret=66,43
+[language\english\main.php]
+TopLine=15
+Caret=31,46
+[language\english\admin.php]
+TopLine=15
+Caret=37,74

@@ -40,7 +40,7 @@ define('_MI_FAQ_GROUP_ADMIN_DEL', "Groupe autoriser à supprimer");
 define('_MI_FAQ_GROUP_ADMIN_DEL_DSC', "Groupes autorisés des catégories ou des FAQ.</ br>A utiliser pour les groupes qui peuvent administrer sans pouvoir supprimer pour autant.");
 define('_MI_FAQ_MENU_PERMISSIONS', "Permissions");
 define('_MI_FAQ_MAILTO', "Envoyer un courriel");
-define('_MI_FAQ_GROUP_ADMIN_PERM', "Groupe admin a tous les drots");
+define('_MI_FAQ_GROUP_ADMIN_PERM', "Groupe admin a tous les drotis");
 define('_MI_FAQ_GROUP_ADMIN_PERM_DSC', "Non: Les permissions du module seront appliquées au groupe admin.<br />Oui : Le groupe admin a toutes les permissions quelque que soit les options de permissions du module");
 
 ?>
