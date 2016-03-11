@@ -118,13 +118,13 @@ _xoopsfaq
 8=admin\menu.php
 [Selected Project Files]
 Main=
-Selected=admin\permissions.php
+Selected=include\functions.php
 [include\constantes.php]
 TopLine=16
 Caret=3,34
 [include\functions.php]
-TopLine=470
-Caret=1,487
+TopLine=281
+Caret=3,290
 [admin\category.php]
 TopLine=132
 Caret=75,141
@@ -133,7 +133,7 @@ TopLine=66
 Caret=1,73
 [admin\permissions.php]
 TopLine=11
-Caret=8,33
+Caret=19,27
 [admin\contents.php]
 TopLine=24
 Caret=81,30

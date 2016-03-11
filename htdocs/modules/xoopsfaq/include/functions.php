@@ -287,7 +287,7 @@ function transformDate2Local($mydate){
  $faqPerms = getAPermissions(_FAQ_PERM_FAQ, _FAQ_ADMIN_PERM);
  $url_module = _FAQ_URL;       
       
- echoA($faqPerms,'interface-' . _FAQ_PERM_FAQ);
+// echoA($faqPerms,'interface-' . _FAQ_PERM_FAQ);
  //----------------------------------------------------
  if ( $faqPerms[_FAQ_PERM_PRINT])
  {
