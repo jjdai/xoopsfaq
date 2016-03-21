@@ -20,7 +20,8 @@
  * @version $Id: menu.php 0000 10/04/2009 08:55:20 John Neill $
  */
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
-include_once "../include/constantes.php";
+//include_once "../include/constantes.php";
+include_once dirname(dirname(__FILE__)) . "/include/constantes.php";
 
 $faq_path32 = '../../Frameworks/moduleclasses/icons/32/';
 /**

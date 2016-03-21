@@ -33,7 +33,7 @@ require_once $modulePath.'/language/' . $GLOBALS['xoopsConfig']['language'] . '/
 /**
  * Module configs
  */
-$modversion = array( 'name' => _MI_FAQ_XOOPSFAQ_NAME,    
+$modversion = array( 'name' => _FAQ_DIRNAME,    
 	'description' => _MI_FAQ_XOOPSFAQ_DESC,
 	'author' => 'John Neill, Kazumi Ono,Jean-Jacques DELALANDRE',
 	'nickname' => 'JNeill,Kazumi,JJD',
@@ -41,7 +41,7 @@ $modversion = array( 'name' => _MI_FAQ_XOOPSFAQ_NAME,
 	'license_url' => 'www.gnu.org/licenses/gpl-2.0.html/',
 	'contributors' => '',
 	'credits' => 'The Xoops Module Development Team',
-	'version' => 3.02,
+	'version' => 3.03,
 	'module_status' => 'RC1',
 	'release_date' => '2016/03/11',
 	'official' => 1,

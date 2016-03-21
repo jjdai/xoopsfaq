@@ -125,7 +125,7 @@ switch ( $op ) {
      if (nsXfaq\getPermission(_FAQ_PERM_CAT, _FAQ_PERM_EDIT, _FAQ_ADMIN_PERM)) {
         foreach($_REQUEST['categories']  as $category_id=>$item)
         {
-          echo $category_id."=". $item['category_order']. " |";
+          //echo $category_id."=". $item['category_order']. " |";
   		    $obj = $category_handler->get( $category_id );
   	 		 $obj->setVar( 'category_order', $item['category_order'] );
   			 $ret = $category_handler->insert( $obj, false );

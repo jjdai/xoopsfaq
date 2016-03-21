@@ -23,7 +23,10 @@
 //echo __FILE__ . "</br>"; 
 global $xoopsModuleConfig;
     
-$faq_dirname='xoopsfaq'; 
+$faq_dirname=basename (dirname(dirname(__FILE__))); 
+//$faq_dirname='xoopsfaq'; 
+//$faq_dirname=$xoopsModuleConfig['xoopsfaq']; 
+echo "<hr>dirname : {$faq_dirname}<hr>";
 define('_FAQ_DIRNAME', $faq_dirname);
 define('_FAQ_PATH', XOOPS_ROOT_PATH  . "/modules/" . _FAQ_DIRNAME);
 define('_FAQ_URL',  XOOPS_URL . "/modules/" . _FAQ_DIRNAME);

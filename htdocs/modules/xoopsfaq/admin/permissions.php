@@ -35,6 +35,7 @@ if (!nsXfaq\isAdminXoops()){
         exit();
 }
 
+//include_once "include/constantes.php";
 $permissions_handler = new XoopsfaqPermissions();
 
 //$permissions_handler = &xoops_getModuleHandler( 'contents',_FAQ_DIRNAME );
